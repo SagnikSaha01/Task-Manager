@@ -23,6 +23,9 @@ public class Notebook {
 	private ActiveTaskList activeTaskList;
 	/** Constructor for the notebook object */
 	public Notebook(String name) {
+		isChanged = false;
+		setActiveTaskList(new ActiveTaskList());
+		setNotebookName(name);
 		
 	}
    /** 
@@ -44,6 +47,7 @@ public class Notebook {
     * @param name the name of the notebook to set
     */
 	private void setNotebookName(String name) {
+		
 		
 	}
    /**
@@ -125,6 +129,9 @@ public class Notebook {
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
 		
+	}
+	public void setActiveTaskList(ActiveTaskList activeTaskList) {
+		this.activeTaskList = activeTaskList;
 	}
 	
 	

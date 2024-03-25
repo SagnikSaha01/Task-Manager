@@ -20,6 +20,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     * @return E the value of the node that is removed
     */
 	public E remove(int idx) {
+		checkIndex(idx);
 		return null;
 	}
    /**
@@ -27,6 +28,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     * @param idx the index to be checked
     */
 	private void checkIndex(int idx) {
+		
 		
 	}
    /**

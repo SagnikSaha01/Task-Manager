@@ -7,7 +7,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  */
 public class ListNode<E> {
 	/** Reference to the next node */
-	public ListNode next;
+	public ListNode<E> next;
 	/** Data that is stored in the current node */
 	public E data;
    /** 
@@ -15,7 +15,7 @@ public class ListNode<E> {
     * @param E data for the current node
     * @param next reference for the next node
     */
-	public ListNode(E data, ListNode next) {
+	public ListNode(E data, ListNode<E> next) {
 		this.data = data;
 		this.next = next;
 	}

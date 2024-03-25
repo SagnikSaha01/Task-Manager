@@ -24,6 +24,7 @@ public class SwapList<E> implements ISwapList<E>{
 	* @param obj the object that is being added 
 	*/
 	public void add(E obj) {
+		checkCapacity(0);
 		
 	}
    /**
@@ -39,6 +40,7 @@ public class SwapList<E> implements ISwapList<E>{
     * @return E the object that was removed
     */
 	public E remove(int idx) {
+		checkIndex(idx);
 		
 		return null;
 	}

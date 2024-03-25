@@ -17,7 +17,7 @@ public abstract class AbstractTaskList {
 	private SwapList<Task> tasks;
 	
 	public AbstractTaskList() {
-		tasks = null;
+		tasks = new SwapList<Task>();
 	}
 
 	/**Gets the taskList Name
