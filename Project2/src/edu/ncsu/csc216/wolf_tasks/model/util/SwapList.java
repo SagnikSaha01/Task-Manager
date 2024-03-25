@@ -4,7 +4,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  * Array based List that implements the ISwapListInterface
  * @param <E>
  */
-public class SwapList<E> {
+public class SwapList<E> implements ISwapList<E>{
 	public static final int INITIAL_CAPACITY = 10;
 	private  E[] list;
 	private int size;	
