@@ -8,7 +8,7 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 
 public class NotebookReader {
-	public static Notebook readNodebookFile(File f) {
+	public static Notebook readNotebookFile(File f) {
 		return null;
 	}
 	private static TaskList processTaskList(String line) {
