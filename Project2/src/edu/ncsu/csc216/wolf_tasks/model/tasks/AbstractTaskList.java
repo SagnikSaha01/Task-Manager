@@ -26,6 +26,10 @@ public abstract class AbstractTaskList {
 	public void setTaskListName(String taskListName) {
 		this.taskListName = taskListName;
 	}
+	
+	public ISwapList<Task> getTasks() {
+		return null;
+	}
 
 	/**
 	 * @return the completedCount

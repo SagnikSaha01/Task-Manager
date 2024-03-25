@@ -15,7 +15,7 @@ public class Task {
 	private boolean active;
 	
 	private ISwapList<Task> taskLists;
-	public Task() {
+	public Task(String name, String description, boolean recurring, boolean active) {
 		
 	}
 

@@ -38,7 +38,7 @@ public class Notebook {
 	public void addTaskList(TaskList tl) {
 		
 	}
-	public String[] getTaskListsName() {
+	public String[] getTaskListsNames() {
 		return null;
 	}
 	public void getActiveTaskList() {
@@ -53,7 +53,7 @@ public class Notebook {
 	public void editTaskList(String taskListName) {
 		
 	}
-	public void removeTaskList(String taskListName) {
+	public void removeTaskList() {
 		
 	}
 	public void addTask(Task t) {
@@ -62,6 +62,7 @@ public class Notebook {
 	public void editTask(int i, String s, String t, boolean a, boolean b) {
 		
 	}
+	
 	
 
 }

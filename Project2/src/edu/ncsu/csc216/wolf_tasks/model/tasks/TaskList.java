@@ -1,7 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
 public class TaskList extends AbstractTaskList implements Comparable<TaskList>{
-	public TaskList() {
+	public TaskList(String s, int i) {
 		
 	}
 	
