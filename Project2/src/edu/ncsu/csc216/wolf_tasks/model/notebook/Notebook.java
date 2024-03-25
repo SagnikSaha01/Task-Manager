@@ -21,7 +21,10 @@ public class Notebook {
 	private ISortedList<TaskList> taskLists;
 	/** Array list that stores all the active tasks */
 	private ActiveTaskList activeTaskList;
-	/** Constructor for the notebook object */
+	/**
+	 * Constructor for the notebook object 
+	 * @param name the name of the notebook
+	 */
 	public Notebook(String name) {
 		isChanged = false;
 		setActiveTaskList(new ActiveTaskList());
@@ -59,7 +62,7 @@ public class Notebook {
 	}
    /**
     * Sets the notebook to be changed or not
-    * @param boolean whether the notebook has changed or not
+    * @param change whether the notebook has changed or not
     */
 	public void setChanged(boolean change) {
 		
@@ -73,7 +76,7 @@ public class Notebook {
 	}
    /**
     * Gets the names of all the tasks lists as an array
-    * @reutrn String[] array consisting of all the task list names
+    * @return String[] array consisting of all the task list names
     */
 	public String[] getTaskListsNames() {
 		return null;
@@ -130,6 +133,10 @@ public class Notebook {
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
 		
 	}
+	/**
+	 * Sets the active task list
+	 * @param activeTaskList the task list that is being set
+	 */
 	public void setActiveTaskList(ActiveTaskList activeTaskList) {
 		this.activeTaskList = activeTaskList;
 	}

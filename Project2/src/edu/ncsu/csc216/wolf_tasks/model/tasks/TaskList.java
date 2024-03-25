@@ -29,7 +29,7 @@ public class TaskList extends AbstractTaskList implements Comparable<TaskList>{
 	
     /**
      * Compares two TaskLists alphabetically
-     * @param TaskList object
+     * @param o TaskList object that is being compared
      * @return positive or negative value based on ordering
      */
 	@Override

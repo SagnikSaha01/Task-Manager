@@ -2,7 +2,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
 
 /**
  * Array based List that implements the ISwapListInterface
- * @param <E>
+ * @param <E> Generic object 
  * @author Aadhir Sandeep
  * @author Sagnik Saha
  */

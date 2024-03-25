@@ -3,7 +3,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
 
 /**
  * Implmentation of a Linked List
- * @param <E>
+ * @param <E> Generic Object
  * @author Aadhir Sandeep
  * @author Sagnik Saha
  */

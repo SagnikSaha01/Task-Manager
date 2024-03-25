@@ -15,7 +15,9 @@ public abstract class AbstractTaskList {
 	
 	/** ISwapList List of Tasks **/
 	private SwapList<Task> tasks;
-	
+	/**
+	 * Constructor for the AbstractTaskList method
+	 */
 	public AbstractTaskList() {
 		tasks = new SwapList<Task>();
 	}

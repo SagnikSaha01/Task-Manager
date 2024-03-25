@@ -12,7 +12,7 @@ public class ListNode<E> {
 	public E data;
    /** 
     * Constructor for a ListNode
-    * @param E data for the current node
+    * @param data for the current node
     * @param next reference for the next node
     */
 	public ListNode(E data, ListNode<E> next) {
