@@ -5,7 +5,7 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
  *@author Aadhir Sandeep
  *@author Sagnik Saha
  */
-public class ActiveTaskList extends AbstractTaskList{
+public class ActiveTaskList extends AbstractTaskList {
 	/**
 	 * Default name of Active List
 	 */
@@ -13,23 +13,25 @@ public class ActiveTaskList extends AbstractTaskList{
 	
 	/**
 	 * Adds Task to the end of Active Task List
+	 * @param t the task that is being added
 	 */
 	public void addTask(Task t) {
-		
+		//TODO implementation
 	}
 	
 	/**
 	 * Sets the Active Task List Name 
+	 * @param name name of the active task list
 	 */
 	public void setTaskListName(String name) {
-		
+		//TODO implementation
 	}
 	
 	/**
 	 * Clears all Tasks in Active Task List
 	 */
 	public void clearTasks() {
-		
+		//TODO implementation
 	}
 	/**
 	 * Gets 2D array of all Tasks and its fields in Active Task List

@@ -5,7 +5,7 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
  * @author Aadhir Sandeep
  * @author Sagnik Saha
  */
-public class TaskList extends AbstractTaskList implements Comparable<TaskList>{
+public class TaskList extends AbstractTaskList implements Comparable<TaskList> {
 	
 	/**
 	 * Initializes TaskList fields using AbstractList constructor.
@@ -13,7 +13,7 @@ public class TaskList extends AbstractTaskList implements Comparable<TaskList>{
 	 * @param completedCount completed count of TaskList
 	 */
 	public TaskList(String name, int completedCount) {
-		
+		//TODO implementation
 	}
 	
 	/**

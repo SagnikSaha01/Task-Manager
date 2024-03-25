@@ -7,6 +7,7 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 import edu.ncsu.csc216.wolf_tasks.model.util.ISortedList;
+import edu.ncsu.csc216.wolf_tasks.model.util.SortedList;
 /**
  * Class for managing a notebook object 
  * @author Aadhir Sandeep
@@ -29,6 +30,7 @@ public class Notebook {
 		isChanged = false;
 		setActiveTaskList(new ActiveTaskList());
 		setNotebookName(name);
+		taskLists = new SortedList<>();
 		
 	}
    /** 
@@ -36,7 +38,7 @@ public class Notebook {
 	* @param f the file to save the notebook to
 	*/
 	public void saveNotebook(File f) {
-		
+		//TODO implementation
 	}
    /**
     * Retrieves the name of the notebook
@@ -50,7 +52,7 @@ public class Notebook {
     * @param name the name of the notebook to set
     */
 	private void setNotebookName(String name) {
-		
+		//TODO implementation
 		
 	}
    /**
@@ -58,21 +60,21 @@ public class Notebook {
     * @return boolean whether the notebook has changed or not
 	*/
 	public boolean isChanged() {
-		return true;
+		return isChanged;
 	}
    /**
     * Sets the notebook to be changed or not
     * @param change whether the notebook has changed or not
     */
 	public void setChanged(boolean change) {
-		
+		//TODO implementation
 	}
    /**
     * Adds another task list to the linked list of all the task lists
     * @param tl the task list to be added
     */
 	public void addTaskList(TaskList tl) {
-		
+		taskLists.add(tl);
 	}
    /**
     * Gets the names of all the tasks lists as an array
@@ -85,41 +87,41 @@ public class Notebook {
     * Retrieves the list of active lists
     */
 	public void getActiveTaskList() {
-		
+		//TODO implementation
 	}
    /**
     * Sets the current task list name
     * @param tl the name of the task list
     */
 	public void setCurrentTaskList(String tl) {
-		
+		//TODO implementation
 	}
    /**
     * Retrieves the current task list
     * @return AbstractTaskList the current task list
     */
 	public AbstractTaskList getCurrentTaskList() {
-		return null;
+		return activeTaskList;
 	}
    /**
     * Edits a specific task list
     * @param taskListName the name of the task list to edit
     */
 	public void editTaskList(String taskListName) {
-		
+		//TODO implementation
 	}
    /**
     * Removes a task list from the linked list of task lists
     */
 	public void removeTaskList() {
-		
+		//TODO implementation
 	}
    /**
     * Adds a task to a task list
     * @param t the task to be added
     */
 	public void addTask(Task t) {
-		
+		//TODO implementation
 	}
 	
 	/**
@@ -131,7 +133,7 @@ public class Notebook {
 	 * @param active whether task is active
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		
+		//TODO implementation
 	}
 	/**
 	 * Sets the active task list

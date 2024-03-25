@@ -12,7 +12,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	private int size;
 	/** Constructor for the linked list */
 	public SortedList() {
-		
+		//TODO implementation
 	}
    /**
     * Removes an node from the linked list
@@ -28,7 +28,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     * @param idx the index to be checked
     */
 	private void checkIndex(int idx) {
-		
+		//TODO implementation
 		
 	}
    /**
@@ -44,7 +44,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     * @return int the size of the linked list
     */
 	public int size() {
-		return 0;
+		return size;
 	}
    /**
     * Adds an element to the linked list
@@ -52,7 +52,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     */
 	@Override
 	public void add(E element) {
-		
+		//TODO implementation
 	}
    /**
     * Checks if the current linked list contains a specific element

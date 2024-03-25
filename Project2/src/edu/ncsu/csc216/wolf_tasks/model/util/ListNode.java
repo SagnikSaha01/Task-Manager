@@ -2,6 +2,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
 
 /**
  * Implementation of a node that holds data and a next reference
+ * @param <E> Generic Object
  * @author Aadhir Sandeep
  * @author Sagnik Saha
  */

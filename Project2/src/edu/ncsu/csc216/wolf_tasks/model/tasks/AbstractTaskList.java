@@ -41,7 +41,7 @@ public abstract class AbstractTaskList {
 	 * @return the SwapList 
 	 */
 	public ISwapList<Task> getTasks() {
-		return null;
+		return tasks;
 	}
 
 	/**Gets the completedCount of a Task
@@ -63,7 +63,7 @@ public abstract class AbstractTaskList {
 	 * @param t Task to be added 
 	 */
 	public void addTask(Task t) {
-		
+		//TODO implementation
 	}
 	/**
 	 * Remove Task from List 
@@ -86,7 +86,7 @@ public abstract class AbstractTaskList {
 	 * @param t Task to be completed
 	 */
 	public void completeTask(Task t) {
-		
+		//TODO implementation
 	}
 	/**
 	 * Abstract method that gets TaskList as a 2D array and ensures implementation in sub classes.

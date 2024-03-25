@@ -41,7 +41,7 @@ public class Task {
 	 * @param active  Whether the Task is active
 	 */
 	public Task(String name, String description, boolean recurring, boolean active) {
-		
+		//TODO implementation
 	}
 
 	/**Gets the task name
@@ -105,7 +105,7 @@ public class Task {
 	 * @return taskList Name
 	 */
 	public String getTaskListName() {
-		return null;
+		return taskLists.get(0).getTaskName();
 	}
 	
 	/**
@@ -113,14 +113,14 @@ public class Task {
 	 * @param list list of Tasks
 	 */
 	public void addTaskList(AbstractTaskList list) {
-		
+		//TODO implementation
 	}
 	
 	/**
 	 * Whether Task has been completed 
 	 */
 	public void completeTask() {
-		
+		//TODO implementation
 	}
 	
 	/**

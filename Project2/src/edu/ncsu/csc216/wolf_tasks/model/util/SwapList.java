@@ -6,7 +6,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  * @author Aadhir Sandeep
  * @author Sagnik Saha
  */
-public class SwapList<E> implements ISwapList<E>{
+public class SwapList<E> implements ISwapList<E> {
 	/** Initial size of the array */
 	public static final int INITIAL_CAPACITY = 10;
 	/** A generic array to hold values */
@@ -17,7 +17,7 @@ public class SwapList<E> implements ISwapList<E>{
 	* Constructor for the SwapList
 	*/
 	public SwapList() {
-		
+		//TODO implementation
 	}
    /**
 	* Adds an object to the array
@@ -32,7 +32,7 @@ public class SwapList<E> implements ISwapList<E>{
 	* @param size the current size of the array
 	*/
 	private void checkCapacity(int size) {
-		
+		//TODO implementation
 	}
    /**
     * Removes an object from the array
@@ -49,35 +49,35 @@ public class SwapList<E> implements ISwapList<E>{
 	* @param idx the index to check 
 	*/
 	private void checkIndex(int idx) {
-		
+		//TODO implementation
 	}
    /**
     * Moves an object up one spot in the array
     * @param idx the index of the object that is being moved
     */
 	public void moveUp(int idx) {
-		
+		//TODO implementation
 	}
    /**
     * Moves an object down one spot in the array
     * @param idx the index of the object that is being moved
     */
 	public void moveDown(int idx) {
-		
+		//TODO implementation
 	}
    /**
     * Moves an object to the front of the array
     * @param idx the index of the object that is being moved
     */
 	public void moveToFront(int idx) {
-		
+		//TODO implementation
 	}
    /**
     * Moves an object to the back of the array
     * @param idx the index of the object that is being moved
     */
 	public void moveToBack(int idx) {
-		
+		//TODO implementation
 	}
    /**
     * Retrives a specific value from the array
@@ -85,7 +85,7 @@ public class SwapList<E> implements ISwapList<E>{
     * @return E the object that is being retrived
     */
 	public E get(int idx) {
-		return null;
+		return list[idx];
 	}
    /**
     * Gets the current size of the array 
@@ -93,7 +93,7 @@ public class SwapList<E> implements ISwapList<E>{
     */
 	public int size() {
 		
-		return 0;
+		return size;
 	}
 	
 	
