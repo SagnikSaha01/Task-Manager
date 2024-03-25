@@ -16,8 +16,9 @@ public class SwapList<E> implements ISwapList<E> {
 	/**
 	* Constructor for the SwapList
 	*/
+	@SuppressWarnings("unchecked")
 	public SwapList() {
-		//TODO implementation
+		list = (E[]) new Object[INITIAL_CAPACITY];
 	}
    /**
 	* Adds an object to the array

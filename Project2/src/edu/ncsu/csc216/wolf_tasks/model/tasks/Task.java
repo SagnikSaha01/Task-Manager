@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
 import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
+import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
 
 /**
  * Class for creating and updating task objects
@@ -41,7 +42,7 @@ public class Task {
 	 * @param active  Whether the Task is active
 	 */
 	public Task(String name, String description, boolean recurring, boolean active) {
-		//TODO implementation
+		taskLists = new SwapList<>();
 	}
 
 	/**Gets the task name
