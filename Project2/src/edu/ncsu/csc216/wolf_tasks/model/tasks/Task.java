@@ -32,7 +32,7 @@ public class Task {
 	/**
 	 * Task knows the List it exists in
 	 */
-	private ISwapList<Task> taskLists;
+	private ISwapList<AbstractTaskList> taskLists;
 	
 	/**
 	 * Task Constructor 
@@ -116,7 +116,10 @@ public class Task {
 	 * @return taskList Name
 	 */
 	public String getTaskListName() {
-		return taskLists.get(0).getTaskName();
+		if(taskLists == null || taskLists.size() == 0) {
+			return "";
+		}
+		return taskLists.get(0).getTaskListName();
 	}
 	
 	/**
@@ -128,14 +131,31 @@ public class Task {
 		if(list == null) {
 			throw new IllegalArgumentException("Incomplete task information.");
 		}
-		for(int i = 0; i < taskList.size())
+		boolean found = false;
+		for(int i = 0; i < taskLists.size(); i++) {
+			if(taskLists.get(i).equals(list)) {
+				found = true;
+			}
+		}
+		if(!found) {
+			taskLists.add(list);
+		}
 	}
 	
 	/**
 	 * Whether Task has been completed 
+	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task 
 	 */
-	public void completeTask() {
-		//TODO implementation
+	public void completeTask() throws CloneNotSupportedException {
+		for(int i = 0; i < taskLists.size(); i++) {
+			taskLists.get(i).completeTask(this);
+		}
+		if(recurring) {
+			Task t = (Task) clone();
+			for(int i = 0; i < taskLists.size(); i++) {
+				taskLists.get(i).addTask(t);
+			}
+		}
 	}
 	
 	/**
@@ -144,7 +164,12 @@ public class Task {
 	 * @return returns a Task object
 	 */
 	public Object clone() throws CloneNotSupportedException {
-		return null;
+		if(taskLists.size() == 0 || taskLists == null) {
+			throw new CloneNotSupportedException("Cannot clone");
+		}
+		
+		Task clone = new Task(this.getTaskName(), this.getTaskDescription(), this.isRecurring(), this.isActive());
+		return clone;
 	}
 	/**
 	 * Lists Task attributes as a String
