@@ -14,11 +14,15 @@ public abstract class AbstractTaskList {
 	private int completedCount;
 	
 	/** ISwapList List of Tasks **/
-	private SwapList<Task> tasks;
+	private ISwapList<Task> tasks;
 	/**
 	 * Constructor for the AbstractTaskList method
+	 * @param taskListName name of task List
+	 * @param completedCount count of completed tasks
 	 */
-	public AbstractTaskList() {
+	public AbstractTaskList(String taskListName, int completedCount) {
+		setTaskListName(taskListName);
+		setCompletedCount(completedCount);
 		tasks = new SwapList<Task>();
 	}
 
@@ -33,6 +37,9 @@ public abstract class AbstractTaskList {
 	 * @param taskListName the taskListName to set
 	 */
 	public void setTaskListName(String taskListName) {
+		if(taskListName == null || "".equals(taskListName)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 		this.taskListName = taskListName;
 	}
 	
@@ -55,6 +62,9 @@ public abstract class AbstractTaskList {
 	 * @param completedCount the completedCount to set
 	 */
 	public void setCompletedCount(int completedCount) {
+		if(completedCount < 0) {
+			throw new IllegalArgumentException("Invalid completed count.");
+		}
 		this.completedCount = completedCount;
 	}
 	
@@ -63,7 +73,8 @@ public abstract class AbstractTaskList {
 	 * @param t Task to be added 
 	 */
 	public void addTask(Task t) {
-		//TODO implementation
+		tasks.add(t);
+		t.addTaskList((AbstractTaskList) this.tasks); 
 	}
 	/**
 	 * Remove Task from List 
@@ -71,7 +82,7 @@ public abstract class AbstractTaskList {
 	 * @return Task removed
 	 */
 	public Task removeTask(int index) {
-		return null;
+		return tasks.remove(index);
 	}
 	/**
 	 * Gets Task from List
@@ -79,14 +90,20 @@ public abstract class AbstractTaskList {
 	 * @return Task from List
 	 */
 	public Task getTask(int index) {
-		return null;
+		return tasks.get(index);
 	}
 	/**
 	 * Allows for task to be completed
 	 * @param t Task to be completed
 	 */
 	public void completeTask(Task t) {
-		//TODO implementation
+		for(int i = 0; i < tasks.size(); i++) {
+			if(tasks.get(i) == t) {
+				tasks.remove(i);
+			}
+		}
+		
+		completedCount++;
 	}
 	/**
 	 * Abstract method that gets TaskList as a 2D array and ensures implementation in sub classes.

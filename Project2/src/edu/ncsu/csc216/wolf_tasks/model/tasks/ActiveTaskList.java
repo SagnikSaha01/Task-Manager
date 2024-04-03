@@ -12,34 +12,62 @@ public class ActiveTaskList extends AbstractTaskList {
 	public final static String ACTIVE_TASKS_NAME = "Active Tasks";
 	
 	/**
+	 * Construct an Active TaskList with default name and completed Tasks as 0
+	 */
+	public ActiveTaskList() {
+		super(ACTIVE_TASKS_NAME, 0);
+	}
+
+	
+	/**
 	 * Adds Task to the end of Active Task List
 	 * @param t the task that is being added
 	 */
+	@Override
 	public void addTask(Task t) {
-		//TODO implementation
+		if(t.isActive()) {
+			this.getTasks().add(t);
+		}
+		else {
+			throw new IllegalArgumentException("Cannot add task to Active Tasks.");
+		}
 	}
 	
 	/**
 	 * Sets the Active Task List Name 
 	 * @param name name of the active task list
 	 */
+	@Override
 	public void setTaskListName(String name) {
-		//TODO implementation
+		if(this.getTaskListName().equals(name)) {
+			this.setTaskListName(name);
+		}
+		else {
+			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
+		}
 	}
 	
 	/**
 	 * Clears all Tasks in Active Task List
 	 */
 	public void clearTasks() {
-		//TODO implementation
+		int size = getTasks().size();
+		for(int i = size - 1; i >= 0; i--) {
+			getTasks().remove(i);		
+		}
 	}
 	/**
 	 * Gets 2D array of all Tasks and its fields in Active Task List
 	 * @return 2D array of tasks in Active Task List 
 	 */
 	public String[][] getTasksAsArray() {
-		// TODO Auto-generated method stub
-		return null;
+		String [][] output = new String[getTasks().size()][2];
+	
+		for(int i = 0; i < output.length; i++) {
+			output[i][0] = getTasks().get(i).getTaskListName();
+			output[i][1] = getTasks().get(i).getTaskName();
+		}
+		return output;
 	}
 	
 }

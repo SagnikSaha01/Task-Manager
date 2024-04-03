@@ -103,7 +103,7 @@ public class SwapList<E> implements ISwapList<E> {
 		remove(idx);
 		
 		for(int i = size; size >= 0; i--) {
-			list[i] = list[i-1];
+			list[i] = list[i - 1];
 		}
 		list[0] = temp;
 		
