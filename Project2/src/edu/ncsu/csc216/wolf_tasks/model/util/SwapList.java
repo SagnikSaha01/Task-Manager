@@ -19,38 +19,57 @@ public class SwapList<E> implements ISwapList<E> {
 	@SuppressWarnings("unchecked")
 	public SwapList() {
 		list = (E[]) new Object[INITIAL_CAPACITY];
+		size = 0;
 	}
    /**
 	* Adds an object to the array
 	* @param obj the object that is being added 
 	*/
 	public void add(E obj) {
-		checkCapacity(0);
-		
+		checkCapacity(size);
+		for(int i = 0; i < size; i++) {
+			
+		}
+		list[size] = obj;
+		size++;
 	}
    /**
-	* Checks if the curren array has enough capacity
+	* Checks if the current array has enough capacity
 	* @param size the current size of the array
 	*/
 	private void checkCapacity(int size) {
-		//TODO implementation
+		if(size == list.length - 1) {
+			@SuppressWarnings("unchecked")
+			E[] tempList = (E[]) new Object[2 * list.length];
+			for(int i = 0; i < list.length; i++) {
+				tempList[i] = list[i];
+			}
+			list = tempList;
+		}
 	}
    /**
     * Removes an object from the array
-    * @param idx the index from whcih the object is being removed from
+    * @param idx the index from which the object is being removed from
     * @return E the object that was removed
     */
 	public E remove(int idx) {
 		checkIndex(idx);
-		
-		return null;
+		E value = list[idx];
+		for(int i = idx; i < size - 1; i++) {
+			list[i] = list[i + 1];
+		}
+		list[size] = null;
+		return value;
 	}
    /**
 	* Checks if the current index is valid
 	* @param idx the index to check 
+	* @throws IndexOutOfBoundsException if the index is out of bounds
 	*/
 	private void checkIndex(int idx) {
-		//TODO implementation
+		if(idx < 0 || idx > size - 1) {
+			throw new IndexOutOfBoundsException("Invalid index.");
+		}
 	}
    /**
     * Moves an object up one spot in the array
@@ -82,10 +101,11 @@ public class SwapList<E> implements ISwapList<E> {
 	}
    /**
     * Retrives a specific value from the array
-    * @param idx the index of the object that is being retrived
-    * @return E the object that is being retrived
+    * @param idx the index of the object that is being retrieved
+    * @return E the object that is being retrieved
     */
 	public E get(int idx) {
+		checkIndex(idx);
 		return list[idx];
 	}
    /**
@@ -93,7 +113,6 @@ public class SwapList<E> implements ISwapList<E> {
     * @return int the size of the array
     */
 	public int size() {
-		
 		return size;
 	}
 	

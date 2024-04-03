@@ -43,6 +43,10 @@ public class Task {
 	 */
 	public Task(String name, String description, boolean recurring, boolean active) {
 		taskLists = new SwapList<>();
+		setTaskName(name);
+		setTaskDescription(description);
+		setRecurring(recurring);
+		setActive(active);
 	}
 
 	/**Gets the task name
@@ -56,6 +60,9 @@ public class Task {
 	 * @param taskName the taskName to set
 	 */
 	public void setTaskName(String taskName) {
+		if(taskName == null || taskName.length() == 0) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
 		this.taskName = taskName;
 	}
 
@@ -70,6 +77,9 @@ public class Task {
 	 * @param taskDescription the taskDescription to set
 	 */
 	public void setTaskDescription(String taskDescription) {
+		if(taskDescription == null) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
 		this.taskDescription = taskDescription;
 	}
 

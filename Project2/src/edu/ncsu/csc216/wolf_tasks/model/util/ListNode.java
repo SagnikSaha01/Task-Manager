@@ -20,6 +20,13 @@ public class ListNode<E> {
 		this.data = data;
 		this.next = next;
 	}
-
+	/**
+	 * Alternate constructor for a ListNode with no next node
+	 * @param data for the current node
+	 */
+	public ListNode(E data) {
+		this.data = data;
+		this.next = null;
+	}
 
 }
