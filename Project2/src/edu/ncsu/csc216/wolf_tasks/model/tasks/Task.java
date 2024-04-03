@@ -121,10 +121,14 @@ public class Task {
 	
 	/**
 	 * If the AbstractTaskList is not associated with a Task, then it is added to the end of the TaskList field.
+	 * @throws IllegalArgumentException if the parameter is null
 	 * @param list list of Tasks
 	 */
 	public void addTaskList(AbstractTaskList list) {
-		//TODO implementation
+		if(list == null) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
+		for(int i = 0; i < taskList.size())
 	}
 	
 	/**
@@ -147,7 +151,15 @@ public class Task {
 	 * @return String of Task attributes
 	 */
 	public String toString() {
-		return null;
+		String out = "* " + taskName;
+		if(recurring) {
+			out = out + ",recurring";
+		}
+		if(active) {
+			out = out + ",active";
+		}
+		out = out + taskDescription;
+		return out;
 	}
 	
 }

@@ -27,9 +27,6 @@ public class SwapList<E> implements ISwapList<E> {
 	*/
 	public void add(E obj) {
 		checkCapacity(size);
-		for(int i = 0; i < size; i++) {
-			
-		}
 		list[size] = obj;
 		size++;
 	}
@@ -75,29 +72,55 @@ public class SwapList<E> implements ISwapList<E> {
     * Moves an object up one spot in the array
     * @param idx the index of the object that is being moved
     */
-	public void moveUp(int idx) {
-		//TODO implementation
+	public void moveUp(int idx) {	
+		checkIndex(idx);
+		if(idx != 0) {
+			E temp = list[idx - 1];
+			list[idx - 1] = list[idx];
+			list[idx] = temp;
+	  }
 	}
+	
    /**
     * Moves an object down one spot in the array
     * @param idx the index of the object that is being moved
     */
 	public void moveDown(int idx) {
-		//TODO implementation
-	}
+		checkIndex(idx);
+		if(idx != size - 1) {
+			E temp = list[idx + 1];
+			list[idx + 1] = list[idx];
+			list[idx] = temp;
+		}
+    }
    /**
     * Moves an object to the front of the array
     * @param idx the index of the object that is being moved
     */
 	public void moveToFront(int idx) {
-		//TODO implementation
+		checkIndex(idx);
+		E temp = list[idx];
+		remove(idx);
+		
+		for(int i = size; size >= 0; i--) {
+			list[i] = list[i-1];
+		}
+		list[0] = temp;
+		
+		size++;
+		
+		
 	}
    /**
     * Moves an object to the back of the array
     * @param idx the index of the object that is being moved
     */
 	public void moveToBack(int idx) {
-		//TODO implementation
+		checkIndex(idx);
+		E temp = list[idx];
+		remove(idx);
+		size++;
+		list[size - 1] = temp;
 	}
    /**
     * Retrives a specific value from the array
