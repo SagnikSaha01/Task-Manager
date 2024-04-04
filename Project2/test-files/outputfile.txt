@@ -1,0 +1,4 @@
+* Read Project 2 Requirements,recurring,active
+Read Project 2 requirements 
+(https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/projects/project2/project2-part1.html)
+and identify candidate classes and methods., isRecurring, isActive

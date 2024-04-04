@@ -74,6 +74,7 @@ public abstract class AbstractTaskList {
 	 */
 	public void addTask(Task t) {
 		tasks.add(t);
+		
 		//t.addTaskList((AbstractTaskList) this.tasks); 
 	}
 	/**
