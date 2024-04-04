@@ -70,13 +70,43 @@ public class NotebookReader {
 		TaskList a1 = null;
 		
 		try {
-			String name = scan.next().trim();
-			int completedCount = scan.nextInt();
 			
-			a1 = new TaskList(name, completedCount);
+			
+			String name = scan.next().trim();
+			
 			
 			
 			scan.useDelimiter("\\r?\\n?[*]");
+
+			String completed = scan.next().substring(1);
+			
+
+			
+			
+			
+			System.out.println(completed);
+			System.out.println(completed.length());
+			
+			
+			
+			while(scan.hasNext()) {
+				//System.out.println(scan.next());
+			}
+			//System.out.println(scan.next() + "A");
+			
+			String completedCount = scan.next();
+			
+			
+			System.out.println(completedCount);
+			
+			
+									
+			//int c1 = Integer.parseInt(newcount);
+			
+			
+			//a1 = new TaskList(name, Integer.parseInt(newcount));
+			
+			
 			
 			while(scan.hasNext()) {
 				a1.addTask(processTask(a1, scan.next()));			
