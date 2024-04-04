@@ -28,7 +28,6 @@ public class TaskList extends AbstractTaskList implements Comparable<TaskList> {
 			output[i][0] = String.valueOf(count);
 			output[i][1] = getTasks().get(i).getTaskName();
 			count++;
-			
 		}
 		return output;
 	    	

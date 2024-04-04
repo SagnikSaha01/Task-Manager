@@ -15,115 +15,58 @@ import org.junit.jupiter.api.Test;
 public class TaskTest {
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#Task(java.lang.String, java.lang.String, boolean, boolean)}.
+	 * Test method for Task constructor
 	 */
 	@Test
 	void testTask() {
-		fail("Not yet implemented");
+		Task t = new Task("Do Homework", "Remember to finish the homework", false, false);
+		assertEquals("Do Homework", t.getTaskName());
+		assertEquals("Remember to finish the homework", t.getTaskDescription());
+		assertFalse(t.isActive());
+		assertFalse(t.isRecurring());
+		assertEquals("", t.getTaskListName());
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#getTaskName()}.
-	 */
-	@Test
-	void testGetTaskName() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#setTaskName(java.lang.String)}.
-	 */
-	@Test
-	void testSetTaskName() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#getTaskDescription()}.
-	 */
-	@Test
-	void testGetTaskDescription() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#setTaskDescription(java.lang.String)}.
-	 */
-	@Test
-	void testSetTaskDescription() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#isRecurring()}.
-	 */
-	@Test
-	void testIsRecurring() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#setRecurring(boolean)}.
-	 */
-	@Test
-	void testSetRecurring() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#isActive()}.
-	 */
-	@Test
-	void testIsActive() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#setActive(boolean)}.
-	 */
-	@Test
-	void testSetActive() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#getTaskListName()}.
-	 */
-	@Test
-	void testGetTaskListName() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#addTaskList(edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList)}.
+	 * Test method for Task.addTaskList()
 	 */
 	@Test
 	void testAddTaskList() {
-		fail("Not yet implemented");
+		Task t = new Task("Do Homework", "Remember to finish the homework", false, false);
+		AbstractTaskList l = new TaskList("Assignments", 0);
+		t.addTaskList(l);
+		assertEquals("Assignments", l.getTaskListName());
+		
+		t.addTaskList(l);
 	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#completeTask()}.
-	 */
-	@Test
-	void testCompleteTask() {
-		fail("Not yet implemented");
-	}
+	
+	
 
 	/**
 	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#clone()}.
 	 */
 	@Test
 	void testClone() {
-		fail("Not yet implemented");
+		Task t = new Task("Do Homework", "Remember to finish the homework", false, false);
+		try {
+			t.clone();
+		} catch (CloneNotSupportedException e) {
+			assertTrue(e instanceof CloneNotSupportedException);
+		}
+		AbstractTaskList l = new TaskList("Assignments", 0);
+		t.addTaskList(l);
+		
+		try {
+			t = (Task) t.clone();
+			assertEquals("Do Homework", t.getTaskName());
+			assertEquals("Remember to finish the homework", t.getTaskDescription());
+			assertFalse(t.isActive());
+			assertFalse(t.isRecurring());
+		} catch (CloneNotSupportedException e) {
+			fail("Should not reach here");
+		}
 	}
 
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#toString()}.
-	 */
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
-	}
+
 
 }
