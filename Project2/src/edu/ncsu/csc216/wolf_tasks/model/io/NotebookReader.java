@@ -74,38 +74,12 @@ public class NotebookReader {
 			
 			String name = scan.next().trim();
 			
-			
-			
 			scan.useDelimiter("\\r?\\n?[*]");
 
-			String completed = scan.next().substring(1);
-			
-
+			String completedCount = scan.next().substring(1);
 			
 			
-			
-			System.out.println(completed);
-			System.out.println(completed.length());
-			
-			
-			
-			while(scan.hasNext()) {
-				//System.out.println(scan.next());
-			}
-			//System.out.println(scan.next() + "A");
-			
-			String completedCount = scan.next();
-			
-			
-			System.out.println(completedCount);
-			
-			
-									
-			//int c1 = Integer.parseInt(newcount);
-			
-			
-			//a1 = new TaskList(name, Integer.parseInt(newcount));
-			
+			a1 = new TaskList(name, Integer.parseInt(completedCount));
 			
 			
 			while(scan.hasNext()) {
@@ -131,36 +105,69 @@ public class NotebookReader {
 	 * @return Task object
 	 */
 	private static Task processTask(AbstractTaskList l, String line) {
+		//System.out.println(line);
 		Scanner scan = new Scanner(line);
-		scan.useDelimiter(",");
 		Task t = null;
-		try {
-			String name = scan.next().trim();
+		
+		String name = "";
+		String active = "";
+		String recurring = "";
+		
+		boolean isRecurring = false;
+		boolean isActive = false;
+		boolean isComma = false;
+		
 			
-			boolean isRecurring = false;
-			boolean isActive = false;
+		try { 
 			
-			while(scan.hasNext()) {
-				if(scan.next().trim().equals("recurring")) {
-					isRecurring = true;			
-					
-				}
-				if(scan.next().trim().equals("active")) {
-					isActive = true;
-				}
-				scan.next();
+			String firstLine = scan.nextLine();
+			
+			String desc = "";
+			while(scan.hasNextLine()) {
+				desc += scan.nextLine() + "\n";						
 			}
+						
 			
-			scan.useDelimiter("\r?\n?[-]");
+			Scanner scan1 = new Scanner(firstLine);
 			
-			String description = "";
 			
-			while(scan.hasNext()) {
-				description += scan.next().trim();						
-			}
+			
+			
+			
+			scan1.useDelimiter(",");
+			
+			int count = 0;
 			
 
-			t = new Task(name, description, isRecurring, isActive);		
+			while(scan1.hasNext()) {
+				if(count == 0) {
+					name = scan1.next().trim();
+					count++;
+				}
+				if(count == 1) {
+					recurring = scan1.next().trim();
+					count++;
+				}
+				if(count == 2) {
+					active = scan1.next().trim();
+				}
+			}
+						
+			if("recurring".equals(recurring)) {
+				isRecurring = true;								
+			}
+			
+			if("active".equals(active)) {
+				isActive = true;
+			}
+		
+			
+				
+						
+			t = new Task(name, desc, isRecurring, isActive);	
+			
+		
+			scan1.close();
 			
 			scan.close();
 			

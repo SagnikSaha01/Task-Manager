@@ -189,7 +189,7 @@ public class Task {
 		if(active) {
 			out = out + ",active";
 		}
-		out = out + taskDescription;
+		out = out + "\n" + taskDescription;
 		return out;
 	}
 	
