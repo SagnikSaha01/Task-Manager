@@ -15,27 +15,35 @@ import org.junit.jupiter.api.Test;
 public class TaskListTest {
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList#getTasksAsArray()}.
+	 * Test method for TaskList.getTasksAsArray()
 	 */
 	@Test
 	void testGetTasksAsArray() {
-		fail("Not yet implemented");
+		TaskList l = new TaskList("Daily HW Assignments", 1);
+		Task t1 = new Task("PY 205", "Do the WileyPlus assignment", true, false);
+		l.addTask(t1);
+		
+		String[][] arr = l.getTasksAsArray();
+		
+		assertEquals("1", arr[0][0]);
+		assertEquals("PY 205", arr[0][1]);
 	}
 
+	
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList#TaskList(java.lang.String, int)}.
-	 */
-	@Test
-	void testTaskList() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList#compareTo(edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList)}.
+	 * Test method for TaskList.compareTo()
 	 */
 	@Test
 	void testCompareTo() {
-		fail("Not yet implemented");
+		TaskList l1 = new TaskList("Daily HW Assignments", 1);
+		
+		TaskList l2 = new TaskList("Daily HW Assignments", 1);
+		
+		TaskList l3 = new TaskList("My To Do List", 3);
+		
+		assertEquals(0, l1.compareTo(l2));
+		assertEquals(-1, l1.compareTo(l3));
+		assertEquals(1, l3.compareTo(l1));
 	}
 
 }

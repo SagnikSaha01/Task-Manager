@@ -50,7 +50,8 @@ public class TaskTest {
 		Task t = new Task("Do Homework", "Remember to finish the homework", false, false);
 		try {
 			t.clone();
-		} catch (CloneNotSupportedException e) {
+			fail("Should have thrown exception");
+		} catch (Exception e) {
 			assertTrue(e instanceof CloneNotSupportedException);
 		}
 		AbstractTaskList l = new TaskList("Assignments", 0);
