@@ -35,7 +35,7 @@ public class Notebook {
 		if(name == null || "".equals(name) || ACTIVE_TASKS_NAME.equals(name)) {
 			throw new IllegalArgumentException("Invalid Name.");
 		}
-		isChanged = false;
+		setChanged(false);
 		setActiveTaskList(new ActiveTaskList());
 		setNotebookName(name);
 		taskLists = new SortedList<>();
@@ -61,7 +61,7 @@ public class Notebook {
     * @param name the name of the notebook to set
     */
 	private void setNotebookName(String name) {
-		
+		this.notebookName = name;
 	}
    /**
     * Whether the notebook has changed or not
@@ -128,7 +128,7 @@ public class Notebook {
     * @return AbstractTaskList the current task list
     */
 	public AbstractTaskList getCurrentTaskList() {
-		return activeTaskList;
+		return currentTaskList;
 	}
    /**
     * Edits a specific task list
