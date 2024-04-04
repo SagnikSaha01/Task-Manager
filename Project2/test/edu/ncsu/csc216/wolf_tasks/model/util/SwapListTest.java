@@ -15,75 +15,86 @@ import org.junit.jupiter.api.Test;
 public class SwapListTest {
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#SwapList()}.
-	 */
-	@Test
-	void testSwapList() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#add(java.lang.Object)}.
+	 * Test method for SwapList.add()
 	 */
 	@Test
 	void testAdd() {
-		fail("Not yet implemented");
+		SwapList<String> l = new SwapList<>();
+		assertEquals(0, l.size());
+		
+		l.add("element1");
+		assertEquals(1, l.size());
+		assertEquals("element1", l.get(0));
+		
+		l.add("element2");
+		assertEquals(2, l.size());
+		assertEquals("element1", l.get(0));
+		assertEquals("element2", l.get(1));
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#remove(int)}.
+	 * Test method for SwapList.remove()
 	 */
 	@Test
 	void testRemove() {
-		fail("Not yet implemented");
+		SwapList<String> l = new SwapList<>();
+		assertEquals(0, l.size());
+		
+		l.add("element1");
+		assertEquals(1, l.size());
+		assertEquals("element1", l.get(0));
+		
+		l.add("element2");
+		assertEquals(2, l.size());
+		assertEquals("element1", l.get(0));
+		assertEquals("element2", l.get(1));
+		
+		assertEquals("element1", l.remove(0));
+		assertEquals(1, l.size());
+		
+		assertEquals("element2", l.remove(0));
+		assertEquals(0, l.size());
+		
+		Exception e = assertThrows(IndexOutOfBoundsException.class, () -> l.remove(4));
+		assertEquals("Invalid index.", e.getMessage());
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#moveUp(int)}.
+	 * Test method for moving elements.
 	 */
 	@Test
-	void testMoveUp() {
-		fail("Not yet implemented");
+	void testMove() {
+		SwapList<String> l = new SwapList<>();
+		
+		l.add("element1");
+		l.add("element2");
+		l.add("element3");
+		
+		assertEquals(3, l.size());
+		
+		l.moveToFront(2);
+		assertEquals("element3", l.get(0));
+		assertEquals("element1", l.get(1));
+		assertEquals("element2", l.get(2));
+		assertEquals(3, l.size());
+		
+		l.moveToBack(1);
+		assertEquals("element3", l.get(0));
+		assertEquals("element2", l.get(1));
+		assertEquals("element1", l.get(2));
+		assertEquals(3, l.size());
+		
+		l.moveUp(1);
+		assertEquals("element2", l.get(0));
+		assertEquals("element3", l.get(1));
+		assertEquals("element1", l.get(2));
+		
+		l.moveDown(1);
+		assertEquals("element2", l.get(0));
+		assertEquals("element1", l.get(1));
+		assertEquals("element3", l.get(2));
 	}
 
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#moveDown(int)}.
-	 */
-	@Test
-	void testMoveDown() {
-		fail("Not yet implemented");
-	}
 
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#moveToFront(int)}.
-	 */
-	@Test
-	void testMoveToFront() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#moveToBack(int)}.
-	 */
-	@Test
-	void testMoveToBack() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#get(int)}.
-	 */
-	@Test
-	void testGet() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SwapList#size()}.
-	 */
-	@Test
-	void testSize() {
-		fail("Not yet implemented");
-	}
 
 }

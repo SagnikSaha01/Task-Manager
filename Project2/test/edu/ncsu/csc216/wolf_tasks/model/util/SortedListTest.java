@@ -15,51 +15,84 @@ import org.junit.jupiter.api.Test;
 public class SortedListTest {
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#SortedList()}.
-	 */
-	@Test
-	void testSortedList() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#remove(int)}.
-	 */
-	@Test
-	void testRemove() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#get(int)}.
-	 */
-	@Test
-	void testGet() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#size()}.
-	 */
-	@Test
-	void testSize() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#add(java.lang.Comparable)}.
+	 * Test method for SortedList.add()
 	 */
 	@Test
 	void testAdd() {
-		fail("Not yet implemented");
+		SortedList<String> l = new SortedList<String>();
+		assertEquals(0, l.size());
+		
+		l.add("gamma");
+		assertEquals("gamma", l.get(0));
+		assertEquals(1, l.size());
+		
+		l.add("beta");
+		assertEquals("beta", l.get(0));
+		assertEquals("gamma", l.get(1));
+		assertEquals(2, l.size());
+		
+		l.add("phi");
+		assertEquals("beta", l.get(0));
+		assertEquals("gamma", l.get(1));
+		assertEquals("phi", l.get(2));
+		assertEquals(3, l.size());
+		
+		l.add("delta");
+		assertEquals("beta", l.get(0));
+		assertEquals("delta", l.get(1));
+		assertEquals("gamma", l.get(2));
+		assertEquals("phi", l.get(3));
+		assertEquals(4, l.size());
+		
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.util.SortedList#contains(java.lang.Comparable)}.
+	 * Test method for SortedList.remove()
+	 */
+	@Test
+	void testRemove() {
+		SortedList<String> l = new SortedList<String>();
+		
+		l.add("gamma");
+		l.add("delta");
+		l.add("phi");
+		
+		assertEquals("delta", l.get(0));
+		assertEquals("gamma", l.get(1));
+		assertEquals("phi", l.get(2));
+		assertEquals(3, l.size());
+		
+		
+		assertEquals("gamma", l.remove(1));	
+		assertEquals("delta", l.get(0));
+		assertEquals("phi", l.get(1));
+		assertEquals(2, l.size());
+		
+		assertEquals("delta", l.remove(0));
+		assertEquals("phi", l.get(0));
+		assertEquals(1, l.size());
+	}
+
+
+
+	
+
+	/**
+	 * Test method for SortedList.contains()
 	 */
 	@Test
 	void testContains() {
-		fail("Not yet implemented");
+		SortedList<String> l = new SortedList<String>();
+		
+		l.add("gamma");
+		l.add("delta");
+		l.add("phi");
+		
+		assertTrue(l.contains("gamma"));
+		assertTrue(l.contains("delta"));
+		assertTrue(l.contains("phi"));
+		
+		assertFalse(l.contains("doesnt exist!"));
 	}
 
 }

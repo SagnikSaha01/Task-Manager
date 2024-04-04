@@ -56,6 +56,7 @@ public class SwapList<E> implements ISwapList<E> {
 			list[i] = list[i + 1];
 		}
 		list[size] = null;
+		size--;
 		return value;
 	}
    /**
@@ -102,11 +103,10 @@ public class SwapList<E> implements ISwapList<E> {
 		E temp = list[idx];
 		remove(idx);
 		
-		for(int i = size; size >= 0; i--) {
+		for(int i = size; i > 0; i--) {
 			list[i] = list[i - 1];
 		}
 		list[0] = temp;
-		
 		size++;
 		
 		

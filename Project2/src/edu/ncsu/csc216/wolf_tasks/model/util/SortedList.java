@@ -24,16 +24,16 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	public E remove(int idx) {
 		checkIndex(idx);
 		if(idx == 0) {
-			E value = (E) front.data;
+			E value = front.data;
 			front = front.next;
 			size--;
 			return value;
 		} else {
 			ListNode current = front;
-			for(int i = 0; i < idx; i++) {
+			for(int i = 0; i < idx - 1; i++) {
 				current = current.next;
 			}
-			E value = (E) current.next.data;
+			E value = current.next.data;
 			current.next = current.next.next;
 			size--;
 			return value;
@@ -60,7 +60,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 		for(int i = 0; i < idx; i++) {
 			current = current.next;
 		}
-		return (E) current.next.data;
+		return current.data;
 	}
    /**
     * Gives the current size of the linked list
@@ -80,15 +80,30 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 			throw new NullPointerException("Cannot add null element.");
 		}
 		if(size == 0) {
-			front = new ListNode<E>(element);
+			front = new ListNode(element);
 			size++;
 		} else {
-			ListNode<E> current = front;
-			while(front.next != null) {
-				current = current.next;
+			ListNode current = front;
+			if(current.data.compareTo(element) > 0) {
+				front = new ListNode(element, current);
+				size++;
+			} else {
+				boolean added = false;
+				while(current.next != null) {
+					if(current.next.data.compareTo(element) > 0) {
+						ListNode temp = current.next;
+						current.next = new ListNode(element, temp);
+						size++;
+						added = true;
+						break;
+					}
+					current = current.next;
+				}
+				if(!added) {
+					current.next = new ListNode(element);
+					size++;
+				}
 			}
-			current.next = new ListNode(element);
-			size++;
 		}
 	}
    /**
@@ -102,8 +117,38 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 			if(current.data == element) {
 				return true;
 			} 
+			current = current.next;
 		}
 		return false;
+	}
+	/**
+	 * Implementation of a node that holds data and a next reference
+	 * @author Aadhir Sandeep
+	 * @author Sagnik Saha
+	 */
+	public class ListNode {
+		/** Reference to the next node */
+		public ListNode next;
+		/** Data that is stored in the current node */
+		public E data;
+	   /** 
+	    * Constructor for a ListNode
+	    * @param data for the current node
+	    * @param next reference for the next node
+	    */
+		public ListNode(E data, ListNode next) {
+			this.data = data;
+			this.next = next;
+		}
+		/**
+		 * Alternate constructor for a ListNode with no next node
+		 * @param data for the current node
+		 */
+		public ListNode(E data) {
+			this.data = data;
+			this.next = null;
+		}
+
 	}
 
 }
