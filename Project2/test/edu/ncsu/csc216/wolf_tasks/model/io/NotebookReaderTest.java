@@ -37,6 +37,10 @@ public class NotebookReaderTest {
 		
 		Notebook n = new Notebook("School");
 		
+		NotebookReader r = new NotebookReader();
+		
+		assertTrue(r instanceof NotebookReader);
+		
 		TaskList tList = new TaskList("CSC 216",35);
 		tList.addTask(new Task("Read Project 2 Requirements", "Read Project 2 requirements \r\n"
 				+ "(https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/projects/project2/project2-part1.html)\r\n"

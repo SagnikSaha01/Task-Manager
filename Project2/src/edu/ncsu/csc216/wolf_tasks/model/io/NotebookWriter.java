@@ -27,9 +27,11 @@ public class NotebookWriter {
 			for (int i = 0; i < taskLists.size(); i++) {
 				String[][] getLength = taskLists.get(i).getTasksAsArray();
 				size = getLength.length;
+				
 
 				for (int j = 0; j < size; j++) {
-					fileWriter.print(taskLists.get(j).getTask(j).toString());
+					
+					fileWriter.print(taskLists.get(i).getTask(j).toString() + "\n");
 				}
 			}
 			fileWriter.close();

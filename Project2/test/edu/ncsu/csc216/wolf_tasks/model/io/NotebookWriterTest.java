@@ -6,6 +6,8 @@ package edu.ncsu.csc216.wolf_tasks.model.io;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +29,11 @@ public class NotebookWriterTest {
 	@Test
 	void testWriteNotebookFile() {
 		
-		File file = new File("test-files/outputfile.txt");
+		File file = new File("test-files/blankfile.txt");
+		
+		NotebookWriter w = new NotebookWriter();
+		
+		assertTrue(w instanceof NotebookWriter);
 		
 		ISortedList<TaskList> taskLists = new SortedList<TaskList>();
 		
@@ -46,8 +52,27 @@ public class NotebookWriterTest {
 		
 		taskLists.add(tList);
 		
-		
 		NotebookWriter.writeNotebookFile(file, "School", taskLists);
+		
+		String expFile = "test-files/blankfile.txt";
+		String actFile = "test-files/outputfile.txt";
+		
+		try (Scanner expScanner = new Scanner(new File(expFile));
+				 Scanner actScanner = new Scanner(new File(actFile));) {
+				
+				while (expScanner.hasNextLine()) {
+					assertEquals(expScanner.nextLine(), actScanner.nextLine());
+				}
+				
+				expScanner.close();
+				actScanner.close();
+			} catch (IOException e) {
+				fail("Error reading files.");
+			}
+		
+		
+		
+		
 	}
 
 }
