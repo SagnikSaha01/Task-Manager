@@ -101,7 +101,6 @@ public class NotebookReader {
 		String name = scan.next().trim();
 		
 		while(scan.hasNext()) {
-			if(scan.next			
 		}
 		
 		
