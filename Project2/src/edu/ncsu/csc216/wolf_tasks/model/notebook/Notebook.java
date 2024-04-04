@@ -40,6 +40,7 @@ public class Notebook {
 		setNotebookName(name);
 		taskLists = new SortedList<>();
 		currentTaskList = activeTaskList;
+		getActiveTaskList();
 	}
    /** 
 	* Saves the current notebook to a file
@@ -104,7 +105,7 @@ public class Notebook {
     * Retrieves the list of active lists
     */
 	private void getActiveTaskList() {
-				
+		//TODO
 	}
    /**
     * Sets the current task list name

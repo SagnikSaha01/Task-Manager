@@ -1,7 +1,6 @@
 package edu.ncsu.csc216.wolf_tasks.model.io;
 
-import java.util.Arrays
-;
+
 import java.io.File;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -122,7 +121,6 @@ public class NotebookReader {
 
 		boolean isRecurring = false;
 		boolean isActive = false;
-		boolean isComma = false;
 
 		try {
 			String name1 = "";
