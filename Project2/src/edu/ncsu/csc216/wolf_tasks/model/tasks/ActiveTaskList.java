@@ -39,8 +39,8 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void setTaskListName(String name) {
-		if(this.getTaskListName().equals(name)) {
-			this.setTaskListName(name);
+		if(name.equals(ACTIVE_TASKS_NAME)) {
+			super.setTaskListName(ACTIVE_TASKS_NAME);
 		}
 		else {
 			throw new IllegalArgumentException("The Active Tasks list may not be edited.");

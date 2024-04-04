@@ -25,11 +25,16 @@ public class Notebook {
 	private ActiveTaskList activeTaskList;
 	/** Array list of the current task list */
 	private AbstractTaskList currentTaskList;
+	/**Default Active Task List Name **/
+	public static final String ACTIVE_TASKS_NAME = "Active Tasks";
 	/**
 	 * Constructor for the notebook object 
 	 * @param name the name of the notebook
 	 */
 	public Notebook(String name) {
+		if(name == null || "".equals(name) || ACTIVE_TASKS_NAME.equals(name)) {
+			throw new IllegalArgumentException("Invalid Name.");
+		}
 		isChanged = false;
 		setActiveTaskList(new ActiveTaskList());
 		setNotebookName(name);

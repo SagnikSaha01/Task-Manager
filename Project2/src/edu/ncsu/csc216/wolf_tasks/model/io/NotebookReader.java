@@ -19,12 +19,13 @@ import java.io.FileNotFoundException;
 public class NotebookReader {
 	/**
 	 * Reads notebook from a file and returns a Notebook object
-	 * @param f directory of file
+	 * @param file directory of file
 	 * @return Notebook object
 	 */
 	public static Notebook readNotebookFile(File file) {
 		String input = "";
 		
+		Notebook n = null;
 		try {
 			Scanner fileReader = new Scanner(new FileInputStream(file));
 			
@@ -38,23 +39,23 @@ public class NotebookReader {
 			
 			Scanner scan = new Scanner(input);
 			
+			String name = scan.nextLine().trim().substring(2);
+			
+			n = new Notebook(name);
+			
 			scan.useDelimiter("\\r?\\n?[#]");
 			
 			while(scan.hasNext()) {
-				processTaskList(scan.next());			
-			}
-
-
+				n.addTaskList(processTaskList(scan.next()));			
+			}		
 			
-			
-			
+			scan.close();
 		} catch(FileNotFoundException e) {
 			throw new IllegalArgumentException("Unable to load file.");
+			
 		}
-		
-		processTaskList(null);
-		processTask(null, null);
-		return null;
+
+		return n;
 	}
 	/**
 	 * Helper method to process multiple TaskLists in a Notebook
@@ -66,27 +67,31 @@ public class NotebookReader {
 		
 		scan.useDelimiter(",");
 		
+		TaskList a1 = null;
+		
 		try {
-			String name = scan.next();
-			name = name.substring(2);
-			int completedCount = Integer.parseInt(scan.next().trim());
+			String name = scan.next().trim();
+			int completedCount = scan.nextInt();
 			
-			AbstractTaskList a1 = new TaskList(name, completedCount);
+			a1 = new TaskList(name, completedCount);
 			
 			
 			scan.useDelimiter("\\r?\\n?[*]");
 			
 			while(scan.hasNext()) {
-				processTask(a1, scan.next());			
+				a1.addTask(processTask(a1, scan.next()));			
 			}
+			
+			scan.close();
 			
 			
 		} catch(NoSuchElementException e) {
-			
+			scan.close();
+			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
 		
-		return null;
+		return a1;
 	}
 	
 	/**
@@ -98,13 +103,43 @@ public class NotebookReader {
 	private static Task processTask(AbstractTaskList l, String line) {
 		Scanner scan = new Scanner(line);
 		scan.useDelimiter(",");
-		String name = scan.next().trim();
-		
-		while(scan.hasNext()) {
+		Task t = null;
+		try {
+			String name = scan.next().trim();
+			
+			boolean isRecurring = false;
+			boolean isActive = false;
+			
+			while(scan.hasNext()) {
+				if(scan.next().trim().equals("recurring")) {
+					isRecurring = true;			
+					
+				}
+				if(scan.next().trim().equals("active")) {
+					isActive = true;
+				}
+				scan.next();
+			}
+			
+			scan.useDelimiter("\r?\n?[-]");
+			
+			String description = "";
+			
+			while(scan.hasNext()) {
+				description += scan.next().trim();						
+			}
+			
+
+			t = new Task(name, description, isRecurring, isActive);		
+			
+			scan.close();
+			
+		} catch (NoSuchElementException e){
+			scan.close();
+			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
-		
-		return null;
+		return t;
 	}
 	
 

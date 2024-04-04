@@ -5,7 +5,11 @@ package edu.ncsu.csc216.wolf_tasks.model.io;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
+
 import org.junit.jupiter.api.Test;
+
+import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
 
 /**
  *Notebook Reader Test
@@ -20,7 +24,11 @@ public class NotebookReaderTest {
 	 */
 	@Test
 	void testReadNotebookFile() {
-		fail("Not yet implemented");
+		Notebook n = new Notebook("School");
+		
+		File f = new File("test-files/notebook1.txt");
+		
+		assertEquals(n, NotebookReader.readNotebookFile(f));
 	}
 
 }
