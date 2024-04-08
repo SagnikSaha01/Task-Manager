@@ -61,6 +61,8 @@ public class NotebookReader {
 			throw new IllegalArgumentException("Unable to load file.");
 
 		}
+		
+		System.err.println(n.toString());
 
 		return n;
 	}
