@@ -36,7 +36,7 @@ public class Notebook {
 		if(name == null || "".equals(name) || ACTIVE_TASKS_NAME.equals(name)) {
 			throw new IllegalArgumentException("Invalid Name.");
 		}
-		setChanged(false);
+		setChanged(true);
 		setActiveTaskList(new ActiveTaskList());
 		setNotebookName(name);
 		taskLists = new SortedList<>();
