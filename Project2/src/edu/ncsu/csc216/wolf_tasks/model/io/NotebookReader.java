@@ -62,7 +62,7 @@ public class NotebookReader {
 
 		}
 		
-		System.err.println(n.toString());
+		System.err.println(n.getNotebookName());
 
 		return n;
 	}
