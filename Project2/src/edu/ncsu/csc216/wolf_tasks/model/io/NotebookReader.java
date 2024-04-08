@@ -177,11 +177,15 @@ public class NotebookReader {
 			 while(scan.hasNextLine()) {
 				 description += scan.nextLine() + "\n"; 
 			 }
+			 
+			System.err.println(name + "hi");
+			
+			System.err.println(description + "hi");
 			 			 
 
 			t = new Task(name1, description, isRecurring, isActive);
 			
-			System.err.println(t.toString());
+			
 			
 			scan1.close();
 
