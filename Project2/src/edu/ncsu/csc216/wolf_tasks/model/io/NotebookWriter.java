@@ -23,10 +23,14 @@ public class NotebookWriter {
 			PrintStream fileWriter = new PrintStream(file);
 
 			int size = 0;
+			
+			fileWriter.print("! " + name + "\n");
 
 			for (int i = 0; i < taskLists.size(); i++) {
 				String[][] getLength = taskLists.get(i).getTasksAsArray();
 				size = getLength.length;
+				
+				fileWriter.print("# " + taskLists.get(i).getTaskListName() + "," + taskLists.get(i).getCompletedCount() + "\n");
 				
 
 				for (int j = 0; j < size; j++) {

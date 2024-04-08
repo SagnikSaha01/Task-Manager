@@ -54,8 +54,8 @@ public class NotebookWriterTest {
 		
 		NotebookWriter.writeNotebookFile(file, "School", taskLists);
 		
-		String expFile = "test-files/blankfile.txt";
-		String actFile = "test-files/outputfile.txt";
+		String actFile = "test-files/blankfile.txt";
+		String expFile = "test-files/outputfile.txt";
 		
 		try (Scanner expScanner = new Scanner(new File(expFile));
 				 Scanner actScanner = new Scanner(new File(actFile));) {
