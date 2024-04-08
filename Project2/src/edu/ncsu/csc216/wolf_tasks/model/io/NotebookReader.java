@@ -93,7 +93,7 @@ public class NotebookReader {
 
 			while (scan.hasNext()) {
 				a1.addTask(processTask(a1, scan.next()));
-
+				
 			}
 			
 
@@ -104,7 +104,7 @@ public class NotebookReader {
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
-		System.err.println(Arrays.deepToString(a1.getTasksAsArray()));
+		//System.err.println(Arrays.deepToString(a1.getTasksAsArray()));
 
 		return a1;
 	}
@@ -177,6 +177,8 @@ public class NotebookReader {
 			 			 
 
 			t = new Task(name1, description, isRecurring, isActive);
+			
+			System.err.println(t.toString());
 			
 			scan1.close();
 
