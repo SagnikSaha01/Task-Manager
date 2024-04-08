@@ -90,7 +90,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 			front = new ListNode(element);
 			size++;
 		} else {
-			ListNode current = front;
+			current = front;
 			if(current.data.compareTo(element) > 0) {
 				front = new ListNode(element, current);
 				size++;
