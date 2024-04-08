@@ -89,6 +89,7 @@ public class Notebook {
 		}
 		isChanged = true;
 		taskLists.add(tl);
+		currentTaskList = tl;
 	}
    /**
     * Gets the names of all the tasks lists as an array
