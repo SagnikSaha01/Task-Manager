@@ -2,6 +2,7 @@ package edu.ncsu.csc216.wolf_tasks.model.io;
 
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -62,7 +63,7 @@ public class NotebookReader {
 
 		}
 		
-		System.err.println(n.getNotebookName());
+		
 
 		return n;
 	}
@@ -102,6 +103,8 @@ public class NotebookReader {
 			scan.close();
 			throw new IllegalArgumentException("Unable to load file.");
 		}
+		
+		System.err.println(Arrays.deepToString(a1.getTasksAsArray()));
 
 		return a1;
 	}
