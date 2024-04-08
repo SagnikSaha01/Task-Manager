@@ -171,7 +171,7 @@ public class Task {
 	 */
 	public Object clone() throws CloneNotSupportedException {
 		if(taskLists.size() == 0 || taskLists == null) {
-			throw new CloneNotSupportedException("Cannot clone");
+			throw new CloneNotSupportedException("Cannot clone.");
 		}
 		
 		Task clone = new Task(this.getTaskName(), this.getTaskDescription(), this.isRecurring(), this.isActive());

@@ -28,7 +28,7 @@ public class SwapList<E> implements ISwapList<E> {
 	public void add(E obj) {
 		System.err.println(obj);
 		if(obj == null) {
-			throw new IllegalArgumentException();
+			throw new NullPointerException("Cannot add null element.");
 		}
 		checkCapacity(size);
 		list[size] = obj;
