@@ -25,6 +25,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void addTask(Task t) {
+		System.err.println(t);
 		if(t.isActive()) {
 			this.getTasks().add(t);
 		}
