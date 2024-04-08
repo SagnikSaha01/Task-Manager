@@ -26,7 +26,7 @@ public class SwapList<E> implements ISwapList<E> {
 	* @param obj the object that is being added 
 	*/
 	public void add(E obj) {
-		System.err.println();
+		System.err.println(obj);
 		if(obj == null) {
 			throw new IllegalArgumentException();
 		}
