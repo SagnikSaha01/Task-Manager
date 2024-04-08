@@ -87,8 +87,10 @@ public class Notebook {
 		if(tl.getTaskListName().equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME)){
 			throw new IllegalArgumentException("Invalid name.");
 		}
-		if(taskLists.contains(tl)) {
-			throw new IllegalArgumentException("Invalid name.");
+		for(int i = 0; i < taskLists.size(); i++) {
+			if(tl.getTaskListName().equals(taskLists.get(i).getTaskListName())) {
+				throw new IllegalArgumentException("Invalid name.");
+			}
 		}
 		isChanged = true;
 		taskLists.add(tl);
