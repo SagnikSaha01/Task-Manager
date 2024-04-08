@@ -137,6 +137,8 @@ public class NotebookReader {
 			String active1 = "";
 			String recurring1 = "";
 			String firstLine = scan.nextLine();
+			
+			System.err.println("HI");
 
 			Scanner scan1 = new Scanner(firstLine);
 
@@ -172,15 +174,11 @@ public class NotebookReader {
 				isActive = true;
 			}
 				
-			
+			System.err.println("HI1");
 			 
 			 while(scan.hasNextLine()) {
 				 description += scan.nextLine() + "\n"; 
 			 }
-			 
-			System.err.println(name + "hi");
-			
-			System.err.println(description + "hi");
 			 			 
 
 			t = new Task(name1, description, isRecurring, isActive);
