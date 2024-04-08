@@ -100,8 +100,6 @@ public class Notebook {
 		for(int i = 0; i < taskLists.size(); i++) {
 			names[i + 1] = taskLists.get(i).getTaskListName();
 		}
-		System.err.println(Arrays.toString(names));
-		System.err.println("hi");
 		return names;
 	}
    /**
