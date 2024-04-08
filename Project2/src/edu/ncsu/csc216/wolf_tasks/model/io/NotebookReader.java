@@ -82,6 +82,8 @@ public class NotebookReader {
 		scan.useDelimiter(",");
 
 		TaskList a1 = null;
+		
+		System.err.println("HI5");
 
 		try {
 
@@ -94,6 +96,9 @@ public class NotebookReader {
 			a1 = new TaskList(name, Integer.parseInt(completedCount));
 
 			while (scan.hasNext()) {
+				
+				System.err.println("HI6");
+				
 				a1.addTask(processTask(a1, scan.next()));
 				
 			}
@@ -138,7 +143,7 @@ public class NotebookReader {
 			String recurring1 = "";
 			String firstLine = scan.nextLine();
 			
-			System.err.println("HI");
+			
 
 			Scanner scan1 = new Scanner(firstLine);
 
