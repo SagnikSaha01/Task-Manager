@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.notebook;
 
 import java.io.File;
+import java.util.Arrays;
 
 import edu.ncsu.csc216.wolf_tasks.model.io.NotebookWriter;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
@@ -99,6 +100,7 @@ public class Notebook {
 		for(int i = 0; i < taskLists.size(); i++) {
 			names[i + 1] = taskLists.get(i).getTaskListName();
 		}
+		System.err.println(Arrays.toString(names));
 		return names;
 	}
    /**

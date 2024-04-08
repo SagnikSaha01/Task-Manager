@@ -41,9 +41,7 @@ public abstract class AbstractTaskList {
 			throw new IllegalArgumentException("Invalid name.");
 		}
 		this.taskListName = taskListName;
-		
-		System.err.println(taskListName + " hi");
-	}
+			}
 	
 	/**
 	 * Gets the TaskList
