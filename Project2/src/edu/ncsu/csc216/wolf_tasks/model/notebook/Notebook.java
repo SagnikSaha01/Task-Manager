@@ -202,20 +202,26 @@ public class Notebook {
 	 * @param active whether task is active
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		if(currentTaskList != activeTaskList) {
-			Task t = currentTaskList.getTask(idx);
-			t.setTaskName(taskName);
-			t.setTaskDescription(taskDescription);
-			t.setRecurring(recurring);
-			t.setActive(active);
-			isChanged = true;
-			if(active) {
-				t = activeTaskList.getTask(idx);
+		
+		
+		try {	
+			if(currentTaskList != activeTaskList) {
+				Task t = currentTaskList.getTask(idx);
 				t.setTaskName(taskName);
 				t.setTaskDescription(taskDescription);
 				t.setRecurring(recurring);
 				t.setActive(active);
+				isChanged = true;
+				if(active) {
+					t = activeTaskList.getTask(idx);
+					t.setTaskName(taskName);
+					t.setTaskDescription(taskDescription);
+					t.setRecurring(recurring);
+					t.setActive(active);
+				}
 			}
+		} catch (Exception e) {
+			System.out.println("Unable to edit task");
 		}
 	}
 	/**
