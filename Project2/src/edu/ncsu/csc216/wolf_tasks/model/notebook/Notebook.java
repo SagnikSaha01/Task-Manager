@@ -139,7 +139,7 @@ public class Notebook {
     */
 	public void editTaskList(String taskListName) {
 		if(currentTaskList == activeTaskList || taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME)) {
-			throw new IllegalArgumentException("Invalid Name."); 
+			throw new IllegalArgumentException("Invalid name."); 
 		}
 		for(int i = 0; i < taskLists.size(); i++) {
 			if(taskLists.get(i).getTaskListName().equalsIgnoreCase(taskListName)) {
