@@ -162,6 +162,10 @@ public class Notebook {
 		}
 		temp.setTaskListName(taskListName);
 		taskLists.add((TaskList) temp);
+		
+		for(int i = 0; i < taskLists.size(); i++) {
+			System.out.print(taskLists.get(i) + "->");
+		}
 	}
    /**
     * Removes a task list from the linked list of task lists
@@ -202,8 +206,6 @@ public class Notebook {
 	 * @param active whether task is active
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		
-		
 		try {	
 			if(currentTaskList != activeTaskList) {
 				Task t = currentTaskList.getTask(idx);
