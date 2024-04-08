@@ -26,6 +26,9 @@ public class SwapList<E> implements ISwapList<E> {
 	* @param obj the object that is being added 
 	*/
 	public void add(E obj) {
+		if(obj == null) {
+			throw new IllegalArgumentException();
+		}
 		checkCapacity(size);
 		list[size] = obj;
 		size++;
