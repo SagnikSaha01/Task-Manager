@@ -21,7 +21,7 @@ import java.io.FileNotFoundException;
  */
 public class NotebookReader {
 	/**
-	 * Reads notebook from a file and returns a Notebook object
+	 * Reads notebook from a file and returns a notebook object
 	 * 
 	 * @param file directory of file
 	 * @return Notebook object
@@ -57,6 +57,8 @@ public class NotebookReader {
 
 			while (scan.hasNext()) {
 				n.addTaskList(processTaskList(scan.next()));
+				
+				System.err.println("HI7");
 			}
 
 			scan.close();
