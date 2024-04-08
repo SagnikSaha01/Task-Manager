@@ -42,6 +42,8 @@ public class NotebookReader {
 			if (input.charAt(0) != '!') {
 				throw new IllegalArgumentException("Unable to load file.");
 			}
+			
+			System.err.println(1);
 
 			Scanner scan = new Scanner(input);
 
@@ -101,6 +103,7 @@ public class NotebookReader {
 
 		} catch (NoSuchElementException e) {
 			scan.close();
+			System.err.println(3);
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
@@ -186,6 +189,8 @@ public class NotebookReader {
 
 		} catch (NoSuchElementException e) {
 			// scan2.close();
+			
+			System.err.println(2);
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 
