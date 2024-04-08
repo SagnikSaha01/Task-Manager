@@ -35,6 +35,8 @@ public class NotebookReader {
 			while (fileReader.hasNextLine()) {
 				input += fileReader.nextLine() + "\n";
 			}
+			
+			System.err.println(input);
 
 			if (input.charAt(0) != '!') {
 				throw new IllegalArgumentException("Unable to load file.");
