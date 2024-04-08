@@ -164,7 +164,7 @@ public class Notebook {
 		taskLists.add((TaskList) temp);
 		
 		for(int i = 0; i < taskLists.size(); i++) {
-			System.out.print(taskLists.get(i) + "->");
+			System.out.print(taskLists.get(i).getTaskListName() + "->");
 		}
 	}
    /**
