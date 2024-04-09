@@ -147,6 +147,7 @@ public class Task {
 	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task 
 	 */
 	public void completeTask() {
+		System.out.println(taskLists.size());
 		for(int i = 0; i < taskLists.size(); i++) {
 			System.out.println(taskLists.get(i).getTaskListName());
 			taskLists.get(i).completeTask(this);
