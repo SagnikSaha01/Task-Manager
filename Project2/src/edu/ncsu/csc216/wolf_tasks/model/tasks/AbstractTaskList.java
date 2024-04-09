@@ -102,6 +102,7 @@ public abstract class AbstractTaskList {
 				tasks.remove(i);
 			}
 		}
+		System.out.println("task completed:" + this.getTaskListName() + completedCount);
 		completedCount++;
 	}
 	/**
