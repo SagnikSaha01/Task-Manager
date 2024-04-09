@@ -102,7 +102,6 @@ public abstract class AbstractTaskList {
 				tasks.remove(i);
 			}
 		}
-		
 		completedCount++;
 	}
 	/**

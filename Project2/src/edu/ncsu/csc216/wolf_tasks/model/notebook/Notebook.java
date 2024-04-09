@@ -1,7 +1,6 @@
 package edu.ncsu.csc216.wolf_tasks.model.notebook;
 
 import java.io.File;
-import java.util.Arrays;
 
 import edu.ncsu.csc216.wolf_tasks.model.io.NotebookWriter;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
@@ -245,21 +244,19 @@ public class Notebook {
 	 * @param active          whether task is active
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		try {
-			if (currentTaskList != activeTaskList) {
-				Task t = currentTaskList.getTask(idx);
-				t.setTaskName(taskName);
-				t.setTaskDescription(taskDescription);
-				t.setRecurring(recurring);
-				t.setActive(active);
-				isChanged = true;
-				if (active) {
-					activeTaskList.addTask(t);
-				}
+		
+		if (currentTaskList != activeTaskList) {
+			Task t = currentTaskList.getTask(idx);
+			t.setTaskName(taskName);
+			t.setTaskDescription(taskDescription);
+			t.setRecurring(recurring);
+			t.setActive(active);
+			isChanged = true;
+			if (active) {
+				activeTaskList.addTask(t);
 			}
-		} catch (Exception e) {
-			System.out.println("Unable to edit task");
 		}
+		
 	}
 
 	/**
