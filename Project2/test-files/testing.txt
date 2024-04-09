@@ -1,7 +1,14 @@
-! Personal
-# Habits
-* Exercise,active,recurring
-Exercise every day. 
-Alternate between cardio and weight training
-* Floss,recurring,active
-Floss when brushing my teeth before bed! 
+! School
+# CSC 216,35
+* Read Project 2 Requirements,active,recurring
+Read Project 2 requirements 
+(https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/projects/project2/project2-part1.html)
+and identify candidate classes and methods.
+* Create CRC Cards,active,recurring
+Identify the key classes and create CRC cards. Note
+responsibilities, collaborators, and possible state.
+* Transfer CRC Cards to UMLetino,active,recurring
+Start creating a UML class diagram from the requirements
+* Download design proposal and rational template,active,recurring
+See (https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/projects/project2/project2-part1.html)
+for template link
