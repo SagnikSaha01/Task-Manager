@@ -156,7 +156,7 @@ public class NotebookReader {
 
 			while (scan1.hasNext()) {
 				if (count == 0) {
-					name = scan1.next();
+					name = scan1.next().trim();
 					name1 = name;
 					count++;
 				}
