@@ -126,7 +126,7 @@ public class NotebookReader {
 			
 			try {
 				a1.addTask(processTask(a1, scan.next()));
-			}catch(Exception e) {
+			} catch(Exception e) {
 				continue;
 			}
 			
