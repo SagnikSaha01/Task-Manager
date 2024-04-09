@@ -56,8 +56,6 @@ public class NotebookReader {
 
 			while (scan.hasNext()) {
 				n.addTaskList(processTaskList(scan.next()));
-				
-				System.err.println("HI7");
 			}
 
 			scan.close();
@@ -65,6 +63,7 @@ public class NotebookReader {
 			throw new IllegalArgumentException("Unable to load file.");
 
 		}
+		
 		
 		
 
@@ -94,6 +93,8 @@ public class NotebookReader {
 			String completedCount = scan.next().substring(1);
 
 			a1 = new TaskList(name, Integer.parseInt(completedCount));
+			
+			System.err.println(a1.getTaskListName());
 
 			while (scan.hasNext()) {
 				
@@ -106,11 +107,9 @@ public class NotebookReader {
 
 		} catch (NoSuchElementException e) {
 			scan.close();
-			System.err.println(3);
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
-		//System.err.println(Arrays.deepToString(a1.getTasksAsArray()));
 
 		return a1;
 	}
@@ -164,13 +163,26 @@ public class NotebookReader {
 
 					recurring = scan1.next();
 					
-					recurring1 = recurring;
+					if(recurring.equals("recurring")) {
+						recurring1 = recurring;						
+					}
+					
+					if(recurring.equals("active")) {
+						active1 = recurring;
+					}
 				
 					count++;
 				}
 				if (scan1.hasNext() && count == 2) {
 					active = scan1.next();
-					active1 = active;
+					
+					if(active.equals("recurring")) {
+						recurring1 = active;						
+					}
+					
+					if(active.equals("active")) {
+						active1 = active;
+					}
 				}
 			}
 
@@ -191,6 +203,8 @@ public class NotebookReader {
 			t = new Task(name1, description, isRecurring, isActive);
 			
 			System.err.println(t.toString());
+			
+			
 			
 			scan1.close();
 
