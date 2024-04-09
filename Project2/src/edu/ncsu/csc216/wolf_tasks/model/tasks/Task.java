@@ -131,9 +131,10 @@ public class Task {
 		if(list == null) {
 			throw new IllegalArgumentException("Incomplete task information.");
 		}
+		
 		boolean found = false;
 		for(int i = 0; i < taskLists.size(); i++) {
-			if(taskLists.get(i).equals(list)) {
+			if(taskLists.get(i).getTaskListName().equals(list.getTaskListName())) {
 				found = true;
 			}
 		}
