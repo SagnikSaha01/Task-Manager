@@ -201,9 +201,6 @@ public class Notebook {
 		temp.setTaskListName(taskListName);
 		taskLists.add((TaskList) temp);
 
-		for (int i = 0; i < taskLists.size(); i++) {
-			System.out.print(taskLists.get(i).getTaskListName() + "->");
-		}
 	}
 
 	/**
@@ -257,11 +254,13 @@ public class Notebook {
 				t.setActive(active);
 				isChanged = true;
 				if (active) {
+					System.out.println("active task");
 					t = activeTaskList.getTask(idx);
 					t.setTaskName(taskName);
 					t.setTaskDescription(taskDescription);
 					t.setRecurring(recurring);
 					t.setActive(active);
+					activeTaskList.addTask(t);
 				}
 			}
 		} catch (Exception e) {
