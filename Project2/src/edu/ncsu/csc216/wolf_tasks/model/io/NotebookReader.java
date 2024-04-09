@@ -81,46 +81,52 @@ public class NotebookReader {
 	 */
 	private static TaskList processTaskList(String line) {
 		Scanner scan = new Scanner(line);
+		
+		String firstLine = scan.nextLine();
+		
+		//System.out.println(firstLine);
+		
+		Scanner scan1 = new Scanner(firstLine);
 
-		scan.useDelimiter(",");
+		scan1.useDelimiter(",");
 
 		TaskList a1 = null;
 		
+		String name = scan1.next().trim();
+		
+		//System.out.println(name);
 
-		try {
-
-			String name = scan.next().trim();
-
-			scan.useDelimiter("\\r?\\n?[*]");
-
-			String completedCount = scan.next().substring(1);
+		//scan.useDelimiter("\\r?\\n?[*]");
+		
+		scan1.useDelimiter(",");
 			
-			try {
-				
-				a1 = new TaskList(name, Math.abs(Integer.parseInt(completedCount)));
-				
-			} catch(NumberFormatException e) {
-				scan.close();
-				throw new IllegalArgumentException("Invalid completed count.");
-			}
+		String completedCount = "";
+		
 			
-			
-			System.out.println(a1.getTaskListName());
-
-			while (scan.hasNext()) {
-				
-				a1.addTask(processTask(a1, scan.next()));
-				
-			}
-			
-
-			scan.close();
-
-		} catch (NoSuchElementException e) {
-			scan.close();
-			throw new IllegalArgumentException("Unable to load file.");
+		if(scan1.hasNext()) {
+			completedCount = scan1.next();
 		}
 		
+		scan.useDelimiter("\\r?\\n?[*]");
+				
+			
+		try {
+			a1 = new TaskList(name, Integer.parseInt(completedCount));
+		} catch(NumberFormatException e) {
+			scan.close();
+			throw new IllegalArgumentException("Invalid completed count.");
+		}
+			
+			
+		//System.out.println(a1.getTaskListName());
+
+		while (scan.hasNext()) {
+				
+			a1.addTask(processTask(a1, scan.next()));
+			
+		}
+			
+		scan.close();
 
 		return a1;
 	}
@@ -213,7 +219,7 @@ public class NotebookReader {
 
 			t = new Task(name1, description, isRecurring, isActive);
 			
-			System.out.println(t.toString());
+			//System.out.println(t.toString());
 			
 			
 			
