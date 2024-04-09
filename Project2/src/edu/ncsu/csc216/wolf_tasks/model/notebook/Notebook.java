@@ -254,12 +254,6 @@ public class Notebook {
 				t.setActive(active);
 				isChanged = true;
 				if (active) {
-					System.out.println("active task");
-					t = activeTaskList.getTask(idx);
-					t.setTaskName(taskName);
-					t.setTaskDescription(taskDescription);
-					t.setRecurring(recurring);
-					t.setActive(active);
 					activeTaskList.addTask(t);
 				}
 			}
