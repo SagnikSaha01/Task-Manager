@@ -57,6 +57,7 @@ public class NotebookReader {
 			while (scan.hasNext()) {
 				n.addTaskList(processTaskList(scan.next()));
 			}
+			
 
 			scan.close();
 		} catch (FileNotFoundException e) {
@@ -65,7 +66,7 @@ public class NotebookReader {
 		}
 		
 		
-		
+		n.setCurrentTaskList("Active Tasks");
 
 		return n;
 	}
