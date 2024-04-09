@@ -36,21 +36,20 @@ public class NotebookReader {
 			while (fileReader.hasNextLine()) {
 				input += fileReader.nextLine() + "\n";
 			}
-			
-			System.err.println(input);
 
 			if (input.charAt(0) != '!') {
 				throw new IllegalArgumentException("Unable to load file.");
 			}
 			
-			System.err.println(1);
+			
+			
 
 			Scanner scan = new Scanner(input);
 
 			String name = scan.nextLine().trim().substring(2);
-
-			n = new Notebook(name);
 			
+			n = new Notebook(name);
+					
 
 
 			scan.useDelimiter("\\r?\\n?[#]");
@@ -85,7 +84,6 @@ public class NotebookReader {
 
 		TaskList a1 = null;
 		
-		System.err.println("HI5");
 
 		try {
 
@@ -98,8 +96,6 @@ public class NotebookReader {
 			a1 = new TaskList(name, Integer.parseInt(completedCount));
 
 			while (scan.hasNext()) {
-				
-				System.err.println("HI6");
 				
 				a1.addTask(processTask(a1, scan.next()));
 				
@@ -148,6 +144,9 @@ public class NotebookReader {
 			
 
 			Scanner scan1 = new Scanner(firstLine);
+			
+
+
 
 			scan1.useDelimiter(",");
 
@@ -157,21 +156,24 @@ public class NotebookReader {
 
 			while (scan1.hasNext()) {
 				if (count == 0) {
-					name = scan1.next().substring(1);
+					name = scan1.next();
 					name1 = name;
 					count++;
 				}
-				if (count == 1) {
+				if (scan1.hasNext() && count == 1) {
+
 					recurring = scan1.next();
+					
 					recurring1 = recurring;
+				
 					count++;
 				}
-				if (count == 2) {
+				if (scan1.hasNext() && count == 2) {
 					active = scan1.next();
 					active1 = active;
-
 				}
 			}
+
 			
 			if ("recurring".equals(recurring1)) {
 				isRecurring = true;
@@ -180,17 +182,15 @@ public class NotebookReader {
 			if ("active".equals(active1)) {
 				isActive = true;
 			}
-				
-			System.err.println("HI1");
-			 
+							 
 			 while(scan.hasNextLine()) {
 				 description += scan.nextLine() + "\n"; 
 			 }
-			 			 
+			 			
 
 			t = new Task(name1, description, isRecurring, isActive);
 			
-			
+			System.err.println(t.toString());
 			
 			scan1.close();
 
@@ -199,7 +199,6 @@ public class NotebookReader {
 		} catch (NoSuchElementException e) {
 			// scan2.close();
 			
-			System.err.println(2);
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 
