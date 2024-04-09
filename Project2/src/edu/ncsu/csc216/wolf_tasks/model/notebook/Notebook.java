@@ -231,6 +231,8 @@ public class Notebook {
 			}
 			isChanged = true;
 		}
+		
+		getActiveTaskList();
 
 	}
 
