@@ -37,7 +37,7 @@ public class NotebookReader {
 				input += fileReader.nextLine() + "\n";
 			}
 			
-			System.err.println(input);
+			//System.err.println(input);
 
 			if (input.charAt(0) != '!') {
 				throw new IllegalArgumentException("Unable to load file.");
@@ -94,10 +94,18 @@ public class NotebookReader {
 			scan.useDelimiter("\\r?\\n?[*]");
 
 			String completedCount = scan.next().substring(1);
-
-			a1 = new TaskList(name, Integer.parseInt(completedCount));
 			
-			//System.err.println(a1.getTaskListName());
+			try {
+				
+				a1 = new TaskList(name, Integer.parseInt(completedCount));
+				
+			} catch(NumberFormatException e) {
+				scan.close();
+				throw new IllegalArgumentException("Invalid completed count.");
+			}
+			
+			
+			System.err.println(a1.getTaskListName());
 
 			while (scan.hasNext()) {
 				
@@ -205,7 +213,7 @@ public class NotebookReader {
 
 			t = new Task(name1, description, isRecurring, isActive);
 			
-			//System.err.println(t.toString());
+			System.err.println(t.toString());
 			
 			
 			
