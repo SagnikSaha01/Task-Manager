@@ -37,7 +37,7 @@ public class NotebookReader {
 				input += fileReader.nextLine() + "\n";
 			}
 			
-			//System.err.println(input);
+			System.err.println(input);
 
 			if (input.charAt(0) != '!') {
 				throw new IllegalArgumentException("Unable to load file.");
@@ -97,7 +97,7 @@ public class NotebookReader {
 			
 			try {
 				
-				a1 = new TaskList(name, Integer.parseInt(completedCount));
+				a1 = new TaskList(name, Math.abs(Integer.parseInt(completedCount)));
 				
 			} catch(NumberFormatException e) {
 				scan.close();
@@ -105,7 +105,7 @@ public class NotebookReader {
 			}
 			
 			
-			System.err.println(a1.getTaskListName());
+			System.out.println(a1.getTaskListName());
 
 			while (scan.hasNext()) {
 				
@@ -213,7 +213,7 @@ public class NotebookReader {
 
 			t = new Task(name1, description, isRecurring, isActive);
 			
-			System.err.println(t.toString());
+			System.out.println(t.toString());
 			
 			
 			
