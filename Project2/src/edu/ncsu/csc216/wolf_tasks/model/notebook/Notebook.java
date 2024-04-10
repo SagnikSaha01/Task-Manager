@@ -45,7 +45,7 @@ public class Notebook {
 		setNotebookName(name);
 		taskLists = new SortedList<>();
 		currentTaskList = activeTaskList;
-		getActiveTaskList();
+		//getActiveTaskList();
 	}
 
 	/**
@@ -131,6 +131,7 @@ public class Notebook {
 	 * Retrieves the list of active lists
 	 */
 	private void getActiveTaskList() {
+		/*
 		activeTaskList = new ActiveTaskList();
 		for (int i = 0; i < taskLists.size(); i++) {
 			ISwapList<Task> arr = taskLists.get(i).getTasks();
@@ -142,6 +143,7 @@ public class Notebook {
 			}
 
 		}
+		*/
 
 	}
 
@@ -151,7 +153,7 @@ public class Notebook {
 	 * @param tl the name of the task list
 	 */
 	public void setCurrentTaskList(String tl) {
-		getActiveTaskList();
+		//getActiveTaskList();
 		boolean found = false;
 		for (int i = 0; i < taskLists.size(); i++) {
 			if (taskLists.get(i).getTaskListName().equalsIgnoreCase(tl)) {
@@ -228,6 +230,7 @@ public class Notebook {
 			currentTaskList.addTask(t);
 			if (t.isActive()) {
 				activeTaskList.addTask(t);
+				t.addTaskList(activeTaskList);
 			}
 			isChanged = true;
 		}

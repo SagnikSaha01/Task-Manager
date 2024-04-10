@@ -148,24 +148,25 @@ public class Task {
 	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task 
 	 */
 	public void completeTask() {
-		System.out.println(taskLists.size());
+		//System.out.println(taskLists.size());
 		for(int i = 0; i < taskLists.size(); i++) {
 			System.out.println(taskLists.get(i).getTaskListName());
 			taskLists.get(i).completeTask(this);
 		}
+		
 		if(recurring) {
 			try {
-				Task t = (Task) clone();
-				for(int i = 0; i < taskLists.size(); i++) {
+				Task t = (Task) this.clone();
+				
+				int s = taskLists.size();
+				for(int i = 0; i < s; i++) {
+					System.out.println("we adding back" + taskLists.size() + taskLists.get(i).getTaskListName());
 					taskLists.get(i).addTask(t);
 				}
 			} catch (Exception e) {
 				throw new IllegalArgumentException();
 			}
-			
 		}
-		
-		
 	}
 	
 	/**

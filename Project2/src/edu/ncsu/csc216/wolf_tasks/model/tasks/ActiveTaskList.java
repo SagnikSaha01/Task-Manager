@@ -28,6 +28,7 @@ public class ActiveTaskList extends AbstractTaskList {
 		if(t.isActive()) {
 			this.getTasks().add(t);
 			t.addTaskList(this);
+			//System.out.println("adding active task cuz ");
 		}
 		else {
 			throw new IllegalArgumentException("Cannot add task to Active Tasks.");
