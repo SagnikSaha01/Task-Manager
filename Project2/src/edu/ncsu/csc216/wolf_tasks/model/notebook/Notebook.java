@@ -75,7 +75,6 @@ public class Notebook {
 	private void setNotebookName(String name) {
 		this.notebookName = name;
 	}
-
 	/**
 	 * Whether the notebook has changed or not
 	 * 
