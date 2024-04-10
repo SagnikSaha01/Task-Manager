@@ -24,7 +24,7 @@ import edu.ncsu.csc216.wolf_tasks.model.util.SortedList;
 public class NotebookWriterTest {
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.io.NotebookWriter#writeNotebookFile(java.io.File, java.lang.String, edu.ncsu.csc216.wolf_tasks.model.util.ISortedList)}.
+	 * Test method for NotebookWriter.writeNotebookFile()
 	 */
 	@Test
 	void testWriteNotebookFile() {

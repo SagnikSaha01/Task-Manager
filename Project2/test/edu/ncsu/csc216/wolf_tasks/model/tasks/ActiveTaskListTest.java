@@ -36,7 +36,7 @@ public class ActiveTaskListTest {
 
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList#clearTasks()}.
+	 * Test method for ActiveTaskList.clearTasks()
 	 */
 	@Test
 	void testClearTasks() {

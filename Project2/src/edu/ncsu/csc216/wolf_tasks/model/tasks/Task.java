@@ -59,6 +59,7 @@ public class Task {
 
 	/**Sets the Task name
 	 * @param taskName the taskName to set
+	 * @throws IllegalArgumentException if task name is null or empty
 	 */
 	public void setTaskName(String taskName) {
 		if(taskName == null || taskName.length() == 0) {
@@ -76,6 +77,7 @@ public class Task {
 
 	/**Sets the Task Description
 	 * @param taskDescription the taskDescription to set
+	 * @throws IllegalArgumentException if the description is null
 	 */
 	public void setTaskDescription(String taskDescription) {
 		if(taskDescription == null) {
@@ -125,8 +127,8 @@ public class Task {
 	
 	/**
 	 * If the AbstractTaskList is not associated with a Task, then it is added to the end of the TaskList field.
-	 * @throws IllegalArgumentException if the parameter is null
 	 * @param list list of Tasks
+	 * @throws IllegalArgumentException if the parameter is null
 	 */
 	public void addTaskList(AbstractTaskList list) {
 		if(list == null) {
@@ -146,7 +148,7 @@ public class Task {
 	
 	/**
 	 * Whether Task has been completed 
-	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task 
+	 * @throws IllegalArgumentException if no AbstractTaskList associated with a Task 
 	 */
 	public void completeTask() {
 		for(int i = 0; i < taskLists.size(); i++) {
@@ -167,8 +169,8 @@ public class Task {
 	
 	/**
 	 * Returns a copy of the Task
-	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task
 	 * @return returns a Task object
+	 * @throws CloneNotSupportedException if no AbstractTaskList associated with a Task
 	 */
 	public Object clone() throws CloneNotSupportedException {
 		if(taskLists.size() == 0 || taskLists == null) {

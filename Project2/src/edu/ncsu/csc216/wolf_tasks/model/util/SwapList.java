@@ -24,6 +24,7 @@ public class SwapList<E> implements ISwapList<E> {
    /**
 	* Adds an object to the array
 	* @param obj the object that is being added 
+	* @throws NullPointerException if the object being added is null
 	*/
 	public void add(E obj) {
 		if(obj == null) {

@@ -52,7 +52,7 @@ public class NotebookTest {
 		
 	}
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook#editTaskList(java.lang.String)}.
+	 * Test method for Notebook.editTaskList()
 	 */
 	@Test
 	void testEditTaskList() {

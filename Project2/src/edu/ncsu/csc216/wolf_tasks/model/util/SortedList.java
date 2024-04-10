@@ -42,6 +42,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
    /**
     * Checks if the current index is valid
     * @param idx the index to be checked
+    * @throws IndexOutOfBoundsException if the index is invalid
     */
 	private void checkIndex(int idx) {
 		if(idx < 0 || idx > size - 1) {
@@ -50,9 +51,9 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 		
 	}
    /**
-    * Retrives a value from a given node
-    * @param idx index of the node to retrive a value from
-    * @return E the object that is being retrived
+    * Retrieves a value from a given node
+    * @param idx index of the node to retrieve a value from
+    * @return E the object that is being retrieved
     */
 	public E get(int idx) {
 		checkIndex(idx);
@@ -73,6 +74,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
     * Adds an element to the linked list
     * @param element the element that is being added
     * @throws NullPointerException if the parameter is null
+    * @throws IllegalArgumentException if trying to add duplicate element
     */
 	@Override
 	public void add(E element) {

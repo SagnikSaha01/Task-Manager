@@ -24,12 +24,11 @@ public class NotebookReaderTest {
 
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.io.NotebookReader#readNotebookFile(java.io.File)}.
+	 * Test method for NotebookReader.readNotebookFile
 	 */
 	@Test
 	void testReadNotebookFile() {
 		
-		//assertArrayEquals(names, NotebookReader.readNotebookFile(f).getTaskListsNames());
 		
 		Notebook n = new Notebook("School");
 		
@@ -55,8 +54,7 @@ public class NotebookReaderTest {
 		File s = new File("test-files/testing.txt");
 		NotebookReader.readNotebookFile(s);
 		
-		//assertArrayEquals(names, NotebookReader.readNotebookFile(f).getTaskListsNames());
-		
+	
 	}
 
 }

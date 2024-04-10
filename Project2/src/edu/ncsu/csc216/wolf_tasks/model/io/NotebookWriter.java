@@ -9,6 +9,8 @@ import edu.ncsu.csc216.wolf_tasks.model.util.ISortedList;
 
 /**
  * IO file class that writes a notebook to a file
+ * @author Aadhir Sandeep
+ * @author Sagnik Saha
  */
 public class NotebookWriter {
 	/**
@@ -17,6 +19,7 @@ public class NotebookWriter {
 	 * @param file      the file where the data is saved
 	 * @param name      the name of the notebook
 	 * @param taskLists the list of task lists to save
+	 * @throws IllegalArgumentException if the file does not exist
 	 */
 	public static void writeNotebookFile(File file, String name, ISortedList<TaskList> taskLists) {
 		try {

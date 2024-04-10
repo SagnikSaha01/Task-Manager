@@ -35,6 +35,7 @@ public abstract class AbstractTaskList {
 
 	/**sets the Task List Name
 	 * @param taskListName the taskListName to set
+	 * @throws IllegalArgumentException if taskList name is null or empty
 	 */
 	public void setTaskListName(String taskListName) {
 		if(taskListName == null || "".equals(taskListName)) {
@@ -60,6 +61,7 @@ public abstract class AbstractTaskList {
 
 	/**Sets the completed count 
 	 * @param completedCount the completedCount to set
+	 * @throws IllegalArgumentException if completed count is less than 0
 	 */
 	public void setCompletedCount(int completedCount) {
 		if(completedCount < 0) {
@@ -98,14 +100,12 @@ public abstract class AbstractTaskList {
 	 * @param t Task to be completed
 	 */
 	public void completeTask(Task t) {
-		//System.out.println("asd" + tasks.size());
 		for(int i = 0; i < tasks.size(); i++) {
 			if(tasks.get(i).getTaskName().equals(t.getTaskName())) {
 				
 				tasks.remove(i);
 			}
 		}
-		System.out.println("after" + tasks.size());
 		completedCount++;
 	}
 	/**

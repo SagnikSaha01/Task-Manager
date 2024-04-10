@@ -22,6 +22,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	/**
 	 * Adds Task to the end of Active Task List
 	 * @param t the task that is being added
+	 * @throws IllegalArgumentException if user is attempting to add directly to active tasks
 	 */
 	@Override
 	public void addTask(Task t) {
@@ -36,7 +37,6 @@ public class ActiveTaskList extends AbstractTaskList {
 				this.getTasks().add(t);
 				t.addTaskList(this);
 			}
-			//System.out.println("adding active task cuz ");
 		}
 		else {
 			throw new IllegalArgumentException("Cannot add task to Active Tasks.");
@@ -46,6 +46,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	/**
 	 * Sets the Active Task List Name 
 	 * @param name name of the active task list
+	 * @throws IllegalArgumentException if active task list name is modified to a different name.
 	 */
 	@Override
 	public void setTaskListName(String name) {

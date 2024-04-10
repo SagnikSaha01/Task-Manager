@@ -35,6 +35,7 @@ public class Notebook {
 	 * Constructor for the notebook object
 	 * 
 	 * @param name the name of the notebook
+	 * @throws IllegalArgumentException if the name of the notebook is invalid
 	 */
 	public Notebook(String name) {
 		if (name == null || "".equals(name) || ACTIVE_TASKS_NAME.equals(name)) {
@@ -97,6 +98,8 @@ public class Notebook {
 	 * Adds another task list to the linked list of all the task lists
 	 * 
 	 * @param tl the task list to be added
+	 * @throws IllegalArgumentException if the name of the task list matches the active task list name
+	 * @throws IllegalArgumentException if the name of the task list already exists in the notebook
 	 */
 	public void addTaskList(TaskList tl) {
 		if (tl.getTaskListName().equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME)) {
@@ -178,6 +181,9 @@ public class Notebook {
 	 * Edits a specific task list
 	 * 
 	 * @param taskListName the name of the task list to edit
+	 * @throws IllegalArgumentException if Active TaskList is attempted to be modified
+	 * @throws IllegalArgumentException if task list name is same as active taskList
+	 * @throws IllegalArgumentException if taskList name is duplicate
 	 */
 	public void editTaskList(String taskListName) {
 		if (currentTaskList == activeTaskList) {
@@ -204,6 +210,7 @@ public class Notebook {
 
 	/**
 	 * Removes a task list from the linked list of task lists
+	 * @throws IllegalArgumentException if the current task list is an active list
 	 */
 	public void removeTaskList() {
 		if (currentTaskList == activeTaskList) {

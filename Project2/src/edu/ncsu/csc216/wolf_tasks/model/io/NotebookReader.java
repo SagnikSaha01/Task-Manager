@@ -24,6 +24,7 @@ public class NotebookReader {
 	 * 
 	 * @param file directory of file
 	 * @return Notebook object
+	 * @throws IllegalArgumentException if Notebook Name does not have exclamation mark
 	 */
 	public static Notebook readNotebookFile(File file) {
 		String input = "";
@@ -130,8 +131,11 @@ public class NotebookReader {
 			}
 			
 		}
-			
+		
+		scan1.close();
 		scan.close();
+		
+		
 
 		return a1;
 	}
@@ -142,6 +146,7 @@ public class NotebookReader {
 	 * @param l    List of Task
 	 * @param line Line of file
 	 * @return Task object
+	 * @throws IllegalArgumentException if the file is unable to be loaded
 	 */
 	private static Task processTask(AbstractTaskList l, String line) {
 		// System.out.println(line);Scanner scan2 = new Scanner(line);
@@ -233,7 +238,6 @@ public class NotebookReader {
 			scan.close();
 
 		} catch (NoSuchElementException e) {
-			// scan2.close();
 			
 			throw new IllegalArgumentException("Unable to load file.");
 		}
