@@ -45,7 +45,7 @@ public class Notebook {
 		setNotebookName(name);
 		taskLists = new SortedList<>();
 		currentTaskList = activeTaskList;
-		//getActiveTaskList();
+		getActiveTaskList();
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class Notebook {
 	 * Retrieves the list of active lists
 	 */
 	private void getActiveTaskList() {
-		/*
+		
 		activeTaskList = new ActiveTaskList();
 		for (int i = 0; i < taskLists.size(); i++) {
 			ISwapList<Task> arr = taskLists.get(i).getTasks();
@@ -142,7 +142,6 @@ public class Notebook {
 			}
 
 		}
-		*/
 
 	}
 
