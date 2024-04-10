@@ -131,7 +131,7 @@ public class Notebook {
 	 */
 	private void getActiveTaskList() {
 		
-		activeTaskList = new ActiveTaskList();
+		activeTaskList.clearTasks();
 		for (int i = 0; i < taskLists.size(); i++) {
 			ISwapList<Task> arr = taskLists.get(i).getTasks();
 

@@ -160,7 +160,7 @@ public class Task {
 				
 				int s = taskLists.size();
 				for(int i = 0; i < s; i++) {
-					System.out.println("we adding back" + taskLists.size() + taskLists.get(i).getTaskListName());
+					System.out.println("adding back" + taskLists.size() + taskLists.get(i).getTaskListName());
 					taskLists.get(i).addTask(t);
 				}
 			} catch (Exception e) {
