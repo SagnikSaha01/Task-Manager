@@ -21,17 +21,13 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 
 public class NotebookReaderTest {
 	
-	/**
-	 * Names of Task Lists in Notebook
-	 */
-	private String [] names = {"Active Tasks", "CSC 216"};
+
 
 	/**
 	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.io.NotebookReader#readNotebookFile(java.io.File)}.
 	 */
 	@Test
 	void testReadNotebookFile() {
-		File f = new File("test-files/notebook1.txt");
 		
 		//assertArrayEquals(names, NotebookReader.readNotebookFile(f).getTaskListsNames());
 		

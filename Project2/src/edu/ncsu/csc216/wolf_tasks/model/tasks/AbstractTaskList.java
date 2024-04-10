@@ -75,7 +75,6 @@ public abstract class AbstractTaskList {
 	public void addTask(Task t) {
 		tasks.add(t);
 		t.addTaskList(this);
-		System.out.println("addTask" + this.getTaskListName());
 	}
 	/**
 	 * Remove Task from List 
@@ -104,7 +103,6 @@ public abstract class AbstractTaskList {
 			}
 		}
 		completedCount++;
-		System.out.println("task completed:" + this.getTaskListName() + completedCount);
 	}
 	/**
 	 * Abstract method that gets TaskList as a 2D array and ensures implementation in sub classes.

@@ -2,7 +2,6 @@ package edu.ncsu.csc216.wolf_tasks.model.io;
 
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -60,7 +59,7 @@ public class NotebookReader {
 				try {
 				
 				n.addTaskList(processTaskList(scan.next()));
-				}catch(Exception e) {
+				} catch(Exception e) {
 					continue;
 				}
 				
@@ -186,11 +185,11 @@ public class NotebookReader {
 
 					recurring = scan1.next();
 					
-					if(recurring.equals("recurring")) {
+					if("recurring".equals(recurring)) {
 						recurring1 = recurring;						
 					}
 					
-					if(recurring.equals("active")) {
+					if("active".equals(recurring)) {
 						active1 = recurring;
 					}
 				
@@ -199,11 +198,11 @@ public class NotebookReader {
 				if (scan1.hasNext() && count == 2) {
 					active = scan1.next();
 					
-					if(active.equals("recurring")) {
+					if("recurring".equals(active)) {
 						recurring1 = active;						
 					}
 					
-					if(active.equals("active")) {
+					if("active".equals(active)) {
 						active1 = active;
 					}
 				}
