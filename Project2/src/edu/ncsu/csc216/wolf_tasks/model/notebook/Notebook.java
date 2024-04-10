@@ -131,7 +131,7 @@ public class Notebook {
 	 */
 	private void getActiveTaskList() {
 		
-		activeTaskList = new ActiveTaskList();
+		//activeTaskList = new ActiveTaskList();
 		for (int i = 0; i < taskLists.size(); i++) {
 			ISwapList<Task> arr = taskLists.get(i).getTasks();
 
@@ -151,7 +151,7 @@ public class Notebook {
 	 * @param tl the name of the task list
 	 */
 	public void setCurrentTaskList(String tl) {
-		//getActiveTaskList();
+		getActiveTaskList();
 		boolean found = false;
 		for (int i = 0; i < taskLists.size(); i++) {
 			if (taskLists.get(i).getTaskListName().equalsIgnoreCase(tl)) {
