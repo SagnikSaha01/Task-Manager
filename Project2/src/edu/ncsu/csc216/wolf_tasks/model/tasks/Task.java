@@ -1,5 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
+import java.util.Arrays;
+
 import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
 
@@ -151,15 +153,15 @@ public class Task {
 		for(int i = 0; i < taskLists.size(); i++) {
 			taskLists.get(i).completeTask(this);
 		}
-		
 		if(recurring) {
 			try {
 				Task t = (Task) this.clone();
-				
-				int s = taskLists.size();
-				for(int i = 0; i < s; i++) {
+				//System.out.println(taskLists.get(0).getTask(0).getTaskName());
+				for(int i = 0; i < taskLists.size(); i++) {
 					taskLists.get(i).addTask(t);
 				}
+				System.out.println(taskLists.get(0).getTask(0).getTaskName());
+				System.out.println(Arrays.deepToString(taskLists.get(0).getTasksAsArray()));
 			} catch (Exception e) {
 				throw new IllegalArgumentException();
 			}

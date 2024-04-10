@@ -43,7 +43,7 @@ public class TaskTest {
 	
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.wolf_tasks.model.tasks.Task#clone()}.
+	 * Test method for Task.clone()
 	 */
 	@Test
 	void testClone() {
@@ -66,6 +66,29 @@ public class TaskTest {
 		} catch (CloneNotSupportedException e) {
 			fail("Should not reach here");
 		}
+	}
+	/**
+	 * Test method for Task.completeTask();
+	 */
+	@Test
+	void testComplete() {
+		Task t = new Task("Do Homework", "Remember to finish the homework", true, false);
+		AbstractTaskList l = new TaskList("Assignments", 0);
+		t.addTaskList(l);
+		l.addTask(t);
+		t.completeTask();
+		assertEquals(1, l.getCompletedCount());
+		assertEquals(1, l.getTasksAsArray().length);
+		t.completeTask();
+		assertEquals(2, l.getCompletedCount());
+		assertEquals(1, l.getTasksAsArray().length);
+		Task r = new Task("A test task", "Testing for non recurring tasks", false, false);
+		l.addTask(t);
+		r.addTaskList(l);
+		assertEquals(2, l.getTasksAsArray().length);
+		r.completeTask();
+		assertEquals(1, l.getTasksAsArray().length);
+		assertEquals(3, l.getCompletedCount());
 	}
 
 
