@@ -83,7 +83,7 @@ public class TaskTest {
 		assertEquals(2, l.getCompletedCount());
 		assertEquals(1, l.getTasksAsArray().length);
 		Task r = new Task("A test task", "Testing for non recurring tasks", false, false);
-		l.addTask(t);
+		l.addTask(r);
 		r.addTaskList(l);
 		assertEquals(2, l.getTasksAsArray().length);
 		r.completeTask();

@@ -82,6 +82,7 @@ public abstract class AbstractTaskList {
 	 * @return Task removed
 	 */
 	public Task removeTask(int index) {
+		
 		return tasks.remove(index);
 	}
 	/**
@@ -97,11 +98,14 @@ public abstract class AbstractTaskList {
 	 * @param t Task to be completed
 	 */
 	public void completeTask(Task t) {
+		//System.out.println("asd" + tasks.size());
 		for(int i = 0; i < tasks.size(); i++) {
-			if(tasks.get(i).equals(t)) {
+			if(tasks.get(i).getTaskName().equals(t.getTaskName())) {
+				
 				tasks.remove(i);
 			}
 		}
+		System.out.println("after" + tasks.size());
 		completedCount++;
 	}
 	/**

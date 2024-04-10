@@ -156,12 +156,10 @@ public class Task {
 		if(recurring) {
 			try {
 				Task t = (Task) this.clone();
-				//System.out.println(taskLists.get(0).getTask(0).getTaskName());
 				for(int i = 0; i < taskLists.size(); i++) {
 					taskLists.get(i).addTask(t);
 				}
-				System.out.println(taskLists.get(0).getTask(0).getTaskName());
-				System.out.println(Arrays.deepToString(taskLists.get(0).getTasksAsArray()));
+				
 			} catch (Exception e) {
 				throw new IllegalArgumentException();
 			}
